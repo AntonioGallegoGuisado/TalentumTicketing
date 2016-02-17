@@ -5,3 +5,4 @@ Prueba de edicion Antonio Gallego Guisado
 
 Edición de felipe
 prueba Almu
+Prueba de edición Vanesa -- conflicto resuelto manualmente
