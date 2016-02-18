@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
 #Instalacion de gemas requeridas:
-#Gema rails-api
+#Gema rails-api documentacion en: http://www.rubydoc.info/gems/rails-api/0.4.0
 gem 'rails-api', '~> 0.4.0'
-#Gema ActiveMerchant
+#Gema ActiveMerchant documentacion en http://www.rubydoc.info/gems/activemerchant/1.57.0
 gem 'activemerchant', '~> 1.57'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
