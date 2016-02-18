@@ -12,3 +12,5 @@ Prueba de edición Vanesa -- conflicto resuelto manualmente
 Prueba de edicion desde Aptana, Antonio
 
 Prueba de edición de Nuria
+
+Prueba de modificación de felipe desde aptana
