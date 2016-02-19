@@ -1,10 +1,14 @@
 source 'https://rubygems.org'
 
-#Instalacion de gemas requeridas:
+#Instalacion de gemas personalizadas:
 #Gema rails-api documentacion en: http://www.rubydoc.info/gems/rails-api/0.4.0
 gem 'rails-api', '~> 0.4.0'
 #Gema ActiveMerchant documentacion en http://www.rubydoc.info/gems/activemerchant/1.57.0
 gem 'activemerchant', '~> 1.57'
+#Gema ActiveAdmin documentacion en http://activeadmin.info/
+gem 'activeadmin', '~> 0.6.6'
+#Gema Device documentacion en https://github.com/plataformatec/devise
+gem 'devise', '~> 3.5', '>= 3.5.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
