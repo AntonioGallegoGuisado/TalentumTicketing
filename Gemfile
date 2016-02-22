@@ -1,21 +1,21 @@
 source 'https://rubygems.org'
 
-#Instalacion de gemas personalizadas:
-#Gema rails-api documentacion en: http://www.rubydoc.info/gems/rails-api/0.4.0
-gem 'rails-api', '~> 0.4.0'
-#Gema ActiveMerchant documentacion en http://www.rubydoc.info/gems/activemerchant/1.57.0
 gem 'activemerchant', '~> 1.57'
-#Gema ActiveAdmin documentacion en http://activeadmin.info/
-gem 'activeadmin', '~> 0.6.6'
-#Gema Devise documentacion en https://github.com/plataformatec/devise
-gem 'devise', '~> 3.5', '>= 3.5.2'
 
+gem 'activeadmin',      github: 'gregbell/active_admin'             # ActiveAdmin backend framework for Rails administration interface
+gem 'polyamorous',      github: 'activerecord-hackery/polyamorous'  # Require for ActiveAdmin to work with Rails 4.1
+gem 'ransack',          github: 'activerecord-hackery/ransack'      # Require for ActiveAdmin to work with Rails 4.1
+gem 'formtastic',       github: 'justinfrench/formtastic'           # Require for ActiveAdmin to work with Rails 4.1
+gem 'devise'                                                 # Authentication
+
+
+gem 'activeadmin-translate'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.0', '>= 5.0.4'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -23,6 +23,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
