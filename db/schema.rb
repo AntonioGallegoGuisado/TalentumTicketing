@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160222105306) do
+ActiveRecord::Schema.define(version: 20160222115053) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -45,5 +45,69 @@ ActiveRecord::Schema.define(version: 20160222105306) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+
+  create_table "codigos", force: :cascade do |t|
+    t.string   "Codigo"
+    t.boolean  "Vendido"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "productos_id"
+  end
+
+  add_index "codigos", ["productos_id"], name: "index_codigos_on_productos_id"
+
+  create_table "entradas", force: :cascade do |t|
+    t.string   "Codigo"
+    t.boolean  "Vendido"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "productos_id"
+  end
+
+  add_index "entradas", ["productos_id"], name: "index_entradas_on_productos_id"
+
+  create_table "facturas", force: :cascade do |t|
+    t.string   "Nombre"
+    t.string   "Calle"
+    t.string   "Numero"
+    t.integer  "CP"
+    t.string   "Provincia"
+    t.string   "Localidad"
+    t.string   "CIF"
+    t.decimal  "NumeroFactura"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "pedidos_id"
+  end
+
+  add_index "facturas", ["pedidos_id"], name: "index_facturas_on_pedidos_id"
+
+  create_table "pedidos", force: :cascade do |t|
+    t.string   "Usuario"
+    t.string   "Mail"
+    t.decimal  "Precio"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "facturas_id"
+  end
+
+  add_index "pedidos", ["facturas_id"], name: "index_pedidos_on_facturas_id"
+
+  create_table "productos", force: :cascade do |t|
+    t.string   "Nombre"
+    t.string   "Titular"
+    t.string   "Descripcion"
+    t.string   "Imagen"
+    t.decimal  "Precio"
+    t.string   "Estado"
+    t.integer  "Iniciales"
+    t.integer  "Disponibles"
+    t.string   "TipoProducto"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "pedidos_id"
+  end
+
+  add_index "productos", ["pedidos_id"], name: "index_productos_on_pedidos_id"
 
 end
