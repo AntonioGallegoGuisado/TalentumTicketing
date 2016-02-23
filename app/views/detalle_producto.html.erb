@@ -1,14 +1,8 @@
-<html>
-	<head>
-		<!DOCTYPE HTML>
-		<title>Producto</title>
-	</head>
-	<body bgcolor="#81DAF5">
-			<h1><%producto.titulo%></h1>
-			<img src="../assets/imagenes/<%producto.imagen%>"/>
-			<%producto.descripcion%><br>
-			<%producto.precio%><br>
-			<a href="direccion enlace formulario">Comprar</a>
-			<a href="direccion enlace index">Vovler</a>
-	</body>
-</html>
+
+
+<h1><%=@producto.Titulo%></h1>
+<img src="../assets/imagenes/<%=@producto.Imagen%>"/>
+<%=@producto.Descripcion%><br>
+<%=@producto.Precio%><br>
+<a href="/Ticketing/formularioRegistro">Comprar</a>
+<a href="/Ticketing/index">Volver</a>
