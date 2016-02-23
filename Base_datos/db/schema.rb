@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20160222115053) do
   add_index "facturas", ["pedidos_id"], name: "index_facturas_on_pedidos_id"
 
   create_table "pedidos", force: :cascade do |t|
-    t.string   "Usuario"
+    #t.string   "Usuario"
     t.string   "Mail"
     t.decimal  "Precio"
     t.datetime "created_at",  null: false
