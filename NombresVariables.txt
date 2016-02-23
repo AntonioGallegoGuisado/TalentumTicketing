@@ -25,8 +25,9 @@ Parametros que
 
 Métodos
 
-Administrador
-		
+Administrador => revisar lo que hace active admin
+	
+	Crear un producto
 		-Meter codigos y entradas
 	Leer los productos
 	Borrar un producto
@@ -34,6 +35,9 @@ Administrador
 	Exportar datos
 
 Usuario
+
+	Controladores: Producto
+
 	Comprar un producto (crear pedido o añadir a pedido existente)
 	Modificar un pedido?
 	Cancelar pedido (volver al index)
