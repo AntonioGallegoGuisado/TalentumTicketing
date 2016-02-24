@@ -1,19 +1,19 @@
 class CreateProductos < ActiveRecord::Migration
   def change
     create_table :productos do |t|
-      t.string :Nombre
-      t.string :Titular
-      t.string :Descripcion
-      t.string :Imagen
-      t.decimal :Precio
-      t.string :Estado
-      t.integer :Iniciales
-      t.integer :Disponibles
-      t.string :TipoProducto
+      t.string :nombre
+      t.string :titular
+      t.string :descripcion
+      t.string :imagen
+      t.decimal :precio
+      t.string :estado
+      t.integer :iniciales
+      t.integer :disponibles
+      t.string :tipoProducto
 
       t.timestamps null: false
       
-      t.belongs_to :pedidos, index: true
+      t.belongs_to :pedido, index: true
       
     end
   end

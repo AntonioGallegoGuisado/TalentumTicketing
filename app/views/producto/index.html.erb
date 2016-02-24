@@ -1,0 +1,10 @@
+
+
+<h1>Todos los Productos</h1>
+<%for producto_actual in @productos%>
+<a href="/Ticketing/detalle_producto"><img src="<%=producto_actual.imagen%>"></a>
+<%=producto_actual.titular%><br />
+<%=producto_actual.to_s%><br />
+<%=producto_actual.pedido.mail%><br />
+<%end%>
+

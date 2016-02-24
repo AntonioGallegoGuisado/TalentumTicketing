@@ -1,11 +1,12 @@
 class Codigo < ActiveRecord::Base
   
+  belongs_to :producto
+  has_one :producto
+  #codigo.includes(:productos)
   
-  has_one :productos
+  validates_uniqueness_of :codigo
   
-  validates_uniqueness_of :Codigo
-  
-  def to_s
-    "#{@codigo},#{@vendido}"
-  end
+  #def to_s
+  #  "#{@codigo},#{@vendido}"
+  #end
 end

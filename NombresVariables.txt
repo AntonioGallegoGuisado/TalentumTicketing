@@ -4,12 +4,11 @@ para vistas de USUARIO
 
 	@productos con los datos de la base de datos (acceso a todas las relaciones de la tabla productos y a la tabla productos)
 	Ejemplo: 
-		Dado un objeto producto queremos obtener el nombre de la factura
-		@productos=Producto.all
-		nuestro_producto=@productos.find id
-		nuestro_producto.pedido.factura.nombre				#A falta de comprobar
-	
-	
+		
+		<%for producto_actual in @productos%>  														#@productos=Producto.all
+		<a href="/Ticketing/detalle_producto"><img src="<%=producto_actual.imagen%>"></a>			#Leemos de la tabla productos
+		<%=producto_actual.titular%><br />															#Leemos de la tabla productos
+		<%=producto_actual.pedido.mail%><br />														#Leemos de la tabla pedido a traves de la relacion
 	
 	
 para vistas de ADMINISTRADOR => lo hace active admin

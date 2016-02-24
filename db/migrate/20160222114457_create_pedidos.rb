@@ -1,13 +1,13 @@
 class CreatePedidos < ActiveRecord::Migration
   def change
     create_table :pedidos do |t|
-      t.string :Usuario
-      t.string :Mail
-      t.decimal :Precio
+      t.string :usuario
+      t.string :mail
+      t.decimal :precio
 
       t.timestamps null: false
       
-      t.belongs_to :facturas, index: true
+      t.belongs_to :factura, index: true
       
     end
   end

@@ -1,8 +1,9 @@
 class Factura < ActiveRecord::Base
   
-  has_one :pedido
+  belongs_to :pedido
+  #factura.includes(:pedidos)
   
-  def to_s
-    "#{@nombre},#{@calle},#{@numero},#{@cp},#{@provincia},#{@localidad},#{@cif},#{@numeroFactura}"
-  end
+  #def to_s
+  #  "#{@nombre},#{@calle},#{@numero},#{@cp},#{@provincia},#{@localidad},#{@cif},#{@numeroFactura}"
+  #end
 end

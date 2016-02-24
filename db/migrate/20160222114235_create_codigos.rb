@@ -1,12 +1,12 @@
 class CreateCodigos < ActiveRecord::Migration
   def change
     create_table :codigos do |t|
-      t.string :Codigo
-      t.boolean :Vendido
+      t.string :codigo
+      t.boolean :vendido
 
       t.timestamps null: false
       
-      t.belongs_to :productos, index: true
+      t.belongs_to :producto, index: true
       
     end
   end

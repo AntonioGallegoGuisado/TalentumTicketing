@@ -1,9 +1,10 @@
 class Entrada < ActiveRecord::Base
   
+  belongs_to :producto
+  has_one :producto
+  #entrada.includes(:productos)
   
-  has_one :productos
-  
-  def to_s
-    "#{@codigo},#{@vendido}"
-  end
+  #def to_s
+  #  "#{@codigo},#{@vendido}"
+  #end
 end
