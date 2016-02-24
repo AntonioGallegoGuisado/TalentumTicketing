@@ -1,7 +1,7 @@
 class Entrada < ActiveRecord::Base
   
   belongs_to :producto
-  has_one :producto
+  #has_one :producto
   #entrada.includes(:productos)
   
   #def to_s
