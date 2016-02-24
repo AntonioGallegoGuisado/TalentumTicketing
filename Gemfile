@@ -9,9 +9,6 @@ gem 'formtastic',       github: 'justinfrench/formtastic'           # Require fo
 gem 'devise'                                                 # Authentication
 
 
-#gemas bootstrap
-gem 'bootstrap-sass', '~> 3.1.1'
-gem 'autoprefixer-rails'
 
 gem 'activeadmin-translate'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
