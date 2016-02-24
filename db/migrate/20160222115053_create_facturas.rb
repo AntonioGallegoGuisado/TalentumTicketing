@@ -9,6 +9,7 @@ class CreateFacturas < ActiveRecord::Migration
       t.string :localidad
       t.string :cif
       t.decimal :numeroFactura
+      t.decimal :importe
 
       t.timestamps null: false
       

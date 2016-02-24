@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20160222115053) do
     t.string   "localidad"
     t.string   "cif"
     t.decimal  "numeroFactura"
+    t.decimal  "importe"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "pedido_id"
@@ -83,7 +84,6 @@ ActiveRecord::Schema.define(version: 20160222115053) do
   add_index "facturas", ["pedido_id"], name: "index_facturas_on_pedido_id"
 
   create_table "pedidos", force: :cascade do |t|
-    t.string   "usuario"
     t.string   "mail"
     t.decimal  "precio"
     t.datetime "created_at", null: false
