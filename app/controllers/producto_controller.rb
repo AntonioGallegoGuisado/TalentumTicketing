@@ -12,4 +12,5 @@ class ProductoController < ApplicationController
     puts codigo
   end
   
+  
 end
