@@ -8,6 +8,10 @@ class ProductoController < ApplicationController
    
   end
   
+   def formularioRegistro
+    @productos = Producto.find(params[:id])
+  end
+  
   def mostrar_codigos
     @productos = Producto.all
     @listadoProductosCodigo = Producto.where(:tipoProducto=> "codigo")

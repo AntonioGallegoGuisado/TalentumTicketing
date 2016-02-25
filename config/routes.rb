@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/producto/mostrar_codigos'
   get '/producto/mostrar_entradas'
   get '/producto/buscar'
+  
+  get '/pedido/pagarVista'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
