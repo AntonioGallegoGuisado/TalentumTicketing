@@ -3,7 +3,7 @@
 			 <ul>
 			 	<li><h6><%=producto.titular%></h6> </li>
 			 	<li>
-				 	<%if producto.tipoProducto == "Codigo"%>
+				 	<%if producto.tipoProducto == "codigo"%>
 				 		<a href="/producto/detalles_producto?id=<%= producto.id %>"><%= image_tag("codigo-qr.jpg", :alt => "Codigo") %></a>
 				 	<%else%>
 				 		<a href="/producto/detalles_producto?id=<%= producto.id %>"><%= image_tag("news_entrada.png", :alt => "entrada") %></a>
