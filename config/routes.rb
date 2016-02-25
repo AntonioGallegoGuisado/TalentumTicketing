@@ -5,6 +5,14 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   root to: "producto#index"
+  
+   get ':controller(/:action(/:id(.:format)))'
+  
+  get '/producto/index'
+  get '/producto/detalles_producto'
+  get '/producto/mostrar_codigos'
+  get '/producto/mostrar_entradas'
+  get '/producto/buscar'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

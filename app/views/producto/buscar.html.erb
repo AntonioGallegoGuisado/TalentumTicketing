@@ -1,9 +1,9 @@
 <section>
-			<%for producto in @productos %>
+			<%for producto in @listadoProductosEncontrados %>
 			 <ul>
 			 	<li><h6><%=producto.titular%></h6> </li>
 			 	<li>
-				 	<%if producto.tipoProducto == "codigo"%>
+				 	<%if producto.tipoProducto == "Codigo"%>
 				 		<a href="/producto/detalles_producto?id=<%= producto.id %>"><%= image_tag("codigo-qr.jpg", :alt => "Codigo") %></a>
 				 	<%else%>
 				 		<a href="/producto/detalles_producto?id=<%= producto.id %>"><%= image_tag("news_entrada.png", :alt => "entrada") %></a>
