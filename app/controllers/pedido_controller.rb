@@ -1,25 +1,68 @@
 class PedidoController < ApplicationController
-  
-   def index
+  def index
     @pedidos = Pedido.all
-    end
+  end
+
+  def pagarVista
+
+    @pedido = Pedido.new
+    @pedido.mail = params[:mail]
+    @pedido.precio = params[:precio]
+
+    @factura = Factura.new
+    @factura.nombre = params[:nombre]
+    @factura.calle = params[:calle]
+    @factura.numero = params[:numero]
+    @factura.cp = params[:cp]
+    @factura.localidad = params[:localidad]
+    @factura.cif = params[:cif]
+
+    @factura.importe = params[:precio]
+
+    #TODO: generar estos 2 campos correctamente
+    @factura.numeroFactura = 5
+    @factura.provincia = 'Madrid'
+
+    @pedido.factura= @factura
+
+    @pedido.save
     
-    def pagarVista
+    generarCorreo
+  end
+
+  private
+
+  def generarCorreo
+    
+    
+    puts "***** id pedido: #{@pedido.id}"
+    
+    
+    # #leemos la base de datos
+    # facturas= Factura.all
+    # pedidos = Pedido.all
+    # productos = Producto.all
+# 
+    # #buscamos el pedido, su factura y su producto
+    # for factura in facturas
+      # facturaActual = Factura.where(factura.numeroFactura => @facturas.numeroFactura)
+    # end
+    # for pedido in pedidos
+      # pedidoActual = Pedido.where(pedido.factura.numeroFactura => @facturas.numeroFactura)
+    # end
+    # for producto in productos
+      # productoActual=Producto.where(producto.pedido.factura.numeroFactura => @facturas.numeroFactura)
+    # end
      
-    @pedidos = Pedido.new
-    @pedidos.mail = params[:mail]
-    @pedidos.precio = params[:precio]
-    @pedidos.save
-    @facturas = Factura.new
-    @facturas.nombre = params[:nombre]
-    @facturas.calle = params[:calle]
-    @facturas.numero = params[:numero]
-    @facturas.cp = params[:cp]
-    @facturas.localidad = params[:localidad]
-    @facturas.cif = params[:cif]
-    @facturas.numeroFactura = @pedidos.id
-    @facturas.pedido_id = @pedidos.id
-    @facturas.importe = params[:precio]
-    @facturas.save
-    end
+     
+     #creamos el objeto destinatario
+     #destinatario = Destinatario.create({ email: @pedido.mail })
+ 
+     #llamamos al mailer para enviar el correo
+     puts "#{@pedido.mail},#{@pedido},#{@pedido.factura}"
+     Compra.correoCompra(@pedido.mail,@pedido,@pedido.factura).deliver
+     
+     
+     
+  end
 end
