@@ -1,0 +1,38 @@
+UNA VEZ PAGADO CON PAYPAL IRÍA A OTRA NUEVA PÁGINA TAL QUE ASÍ:
+
+
+<%= form_tag({controller:"pedido",action:"facturar"}, method:"get") do %>
+	<br/>
+	<%=label_tag(:nombre, "nombre:")%>
+	<%=email_field_tag(:nombre )%><br/>
+	
+	<%=label_tag(:calle, "calle:")%>
+	<%=email_field_tag(:calle )%><br/>
+	
+	<%=label_tag(:numero, "numero:")%>
+	<%=email_field_tag(:numero )%><br/>
+	
+	<%=label_tag(:cp, "cp:")%>
+	<%=email_field_tag(:cp )%><br/>
+	
+	
+	<%=label_tag(:localidad, "localidad:")%>
+	<%=email_field_tag(:localidad)%><br/>
+	
+	<%=label_tag(:cif, "cif:")%>
+	<%=email_field_tag(:cif )%><br/>
+	
+	<%=label_tag(:numeroFactura, "numeroFactura:")%>
+	<%=email_field_tag(:numeroFactura )%><br/>
+	
+	<%=label_tag(:importe, "importe:")%>
+	<%=email_field_tag(:importe )%><br/>
+	
+	
+	<input type="hidden" name="precio" value="<%=@pedidoProvisional.precio%>"/>
+	<input type="hidden" name="mail" value="<%=@pedidoProvisional.mail%>"/>
+	
+	<br/>
+	<%= submit_tag("Facturar" )%>
+
+<% end %>
