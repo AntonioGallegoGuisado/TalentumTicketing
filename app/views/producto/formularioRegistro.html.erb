@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- Resumen del pedido realizado-->
 
 <h3>Resumen del pedido</h3>
@@ -30,3 +31,59 @@ Tipo: <%=@productos.tipoProducto%><br/>
 	<%= submit_tag("Pagar" )%>
 
 <% end %>
+=======
+<!-- Resumen del pedido realizado-->
+
+<h3>Resumen del pedido</h3>
+<!-- Resumen del pedido realizado-->
+
+<!-- producto -> titular -->
+El producto seleccionado ha sido: <%=@productos.titular%> <br/>
+<!-- producto -> descripción -->
+Descripción:<%=@productos.descripcion%><br/>
+Imagen:<img  src="<%=@productos.imagen%>"/><br/>
+Precio:<%=@productos.precio%><br/>
+Tipo: <%=@productos.tipoProducto%><br/>
+
+
+<!-- Enlace de vuelta al detalle -->
+<a href="/producto/detalles_producto?id=<%= @productos.id %>">Volver</a>
+
+<br />
+<br/>
+
+<h4>Rellene los datos del pedido</h4>
+<!-- Formulario de registro del usuario para el pedido-->
+<%= form_tag({controller:"pedido",action:"pagarVista"}, method:"get") do %>
+	<br/>
+	<%=label_tag(:mail, "Direccion de correo:")%>
+	<%=email_field_tag(:mail )%><br/>
+	
+	<input type="hidden" name="precio" value="<%=@productos.precio%>"/>
+		
+
+	<%=label_tag(:nombre, "nombre:")%>
+	<%=text_field_tag(:nombre )%><br/>
+	
+	<%=label_tag(:calle, "calle:")%>
+	<%=text_field_tag(:calle )%><br/>
+	
+	<%=label_tag(:numero, "numero:")%>
+	<%=text_field_tag(:numero )%><br/>
+	
+	<%=label_tag(:cp, "cp:")%>
+	<%=text_field_tag(:cp )%><br/>
+	
+	
+	<%=label_tag(:localidad, "localidad:")%>
+	<%=text_field_tag(:localidad)%><br/>
+	
+	<%=label_tag(:cif, "cif:")%>
+	<%=text_field_tag(:cif )%><br/>
+	
+	Importe:<%=@productos.precio%><br/>
+	
+	<br/>
+	<%= submit_tag("Pagar" )%>
+	<% end %>
+>>>>>>> a112cd123b0884c3a2c51e3c2996e8afdd36bfac

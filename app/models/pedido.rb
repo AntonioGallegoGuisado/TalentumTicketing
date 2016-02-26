@@ -8,4 +8,7 @@ class Pedido < ActiveRecord::Base
   #def to_s
   #  "#{@usuario},#{@mail},#{@precio}"
   #end
+  def to_s
+    "Pedido##{self.id}"
+  end
 end

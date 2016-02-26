@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>Todos los Productos</h1>
 			<%for producto in @productos %>
 			  <img src="<%= producto.imagen %>" />
@@ -6,3 +7,24 @@
     		  
     		  
     		<%end%>
+=======
+<section>
+			<%for producto in @productos %>
+			 <ul>
+			 	<li><h6><%=producto.titular%></h6> </li>
+			 	<li>
+				 	<%if producto.tipoProducto == "codigo"%>
+				 		<a href="/producto/detalles_producto?id=<%= producto.id %>"><%= image_tag("codigo-qr.jpg", :alt => "Codigo") %></a>
+				 	<%else%>
+				 		<a href="/producto/detalles_producto?id=<%= producto.id %>"><%= image_tag("news_entrada.png", :alt => "entrada") %></a>
+				 	<%end%>
+			 	</li>	 	
+			 	<li>
+			 		<a href="/producto/detalles_producto?id=<%= producto.id %>">Detalles del producto</a> 
+			 	</li>
+			 </ul>   		  
+    		<%end%>
+ </section>  
+  		
+ <p id="ref_admin"><a href="/admin">Admin</a></p>
+>>>>>>> a112cd123b0884c3a2c51e3c2996e8afdd36bfac

@@ -1,0 +1,19 @@
+<section>
+			<%for producto in @listadoProductosEncontrados %>
+			 <ul>
+			 	<li><h6><%=producto.titular%></h6> </li>
+			 	<li>
+				 	<%if producto.tipoProducto == "codigo"%>
+				 		<a href="/producto/detalles_producto?id=<%= producto.id %>"><%= image_tag("codigo-qr.jpg", :alt => "Codigo") %></a>
+				 	<%else%>
+				 		<a href="/producto/detalles_producto?id=<%= producto.id %>"><%= image_tag("news_entrada.png", :alt => "entrada") %></a>
+				 	<%end%>
+			 	</li>	 	
+			 	<li>
+			 		<a href="/producto/detalles_producto?id=<%= producto.id %>">Detalles del producto</a> 
+			 	</li>
+			 </ul>   		  
+    		<%end%>
+ </section>  
+  		
+ <p id="ref_admin"><a href="/admin">Admin</a></p>
