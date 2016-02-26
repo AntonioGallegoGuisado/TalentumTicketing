@@ -1,47 +1,5 @@
 class PedidoController < ApplicationController
-<<<<<<< HEAD
-  
-  
-  def index
-    @pedidos = Pedido.all
-    end
-    
-    def pagarVista
-    @pedidoProvisional = Pedido.new
-    @pedidoProvisional.mail = params[:mail]
-    @pedidoProvisional.precio = params[:precio]
-    render :pagoPaypal
-    end
-    
-    def pagoPaypal
-    @facturas = Factura.new
-    @facturas.nombre = params[:nombre]
-    @facturas.calle = params[:calle]
-    @facturas.numero = params[:numero]
-    @facturas.cp = params[:cp]
-    @facturas.localidad = params[:localidad]
-    @facturas.cif = params[:cif]
-    @facturas.numeroFactura = params[:numeroFactura]
-    @facturas.importe = @pedidoProvisional.precio
-    @facturas.save
-    @pedidoProvisional.save
-    render :facturar
-    end
-  
-  
  
-  
-  
-  
- 
-  
- 
-  
-  
-  
-  
-  
-=======
   def index
     @pedidos = Pedido.all
   end
@@ -105,8 +63,5 @@ class PedidoController < ApplicationController
      puts "#{@pedido.mail},#{@pedido},#{@pedido.factura}"
      Compra.correoCompra(@pedido.mail,@pedido,@pedido.factura).deliver
      
-     
-     
   end
->>>>>>> a112cd123b0884c3a2c51e3c2996e8afdd36bfac
 end

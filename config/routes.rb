@@ -6,15 +6,6 @@ Rails.application.routes.draw do
 
   root to: "producto#index"
   
-<<<<<<< HEAD
- 
-  
-  get ':controller(/:action(/:id(.:format)))'
-  
-  get '/producto/index'
-  get '/producto/detalles_producto'
-  
-=======
    get ':controller(/:action(/:id(.:format)))'
   
   get '/producto/index'
@@ -24,7 +15,7 @@ Rails.application.routes.draw do
   get '/producto/buscar'
   
   get '/pedido/pagarVista'
->>>>>>> a112cd123b0884c3a2c51e3c2996e8afdd36bfac
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

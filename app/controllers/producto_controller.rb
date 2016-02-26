@@ -12,22 +12,6 @@ class ProductoController < ApplicationController
     @productos = Producto.find(params[:id])
   end
   
-<<<<<<< HEAD
-  
-  
-  def detalle_producto
-    @productos = Producto.find(params[:id])
-   
-  end
-  
-  def formularioRegistro
-    @productos = Producto.find(params[:id])
-  end
-    
-
-  
-  
-=======
   def mostrar_codigos
     @productos = Producto.all
     @listadoProductosCodigo = Producto.where(:tipoProducto=> "codigo")
@@ -45,5 +29,4 @@ class ProductoController < ApplicationController
     @productos = Producto.all
   end
 
->>>>>>> a112cd123b0884c3a2c51e3c2996e8afdd36bfac
 end
