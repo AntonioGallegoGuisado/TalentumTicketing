@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'codigos/index'
+
+  get 'entradas/index'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
@@ -10,8 +14,8 @@ Rails.application.routes.draw do
   
   get '/producto/index'
   get '/producto/detalles_producto'
-  get '/producto/mostrar_codigos'
-  get '/producto/mostrar_entradas'
+  get '/codigos/index'
+  get '/entradas/index'
   get '/producto/buscar'
   
   get '/pedido/pagarVista'
