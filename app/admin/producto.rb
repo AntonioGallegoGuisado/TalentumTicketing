@@ -2,6 +2,8 @@ ActiveAdmin.register Producto do
 
 permit_params :nombre, :titular, :descripcion, :imagen, :precio, :estado, :iniciales, :disponibles, :tipoProducto
 
+active_admin_importable
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

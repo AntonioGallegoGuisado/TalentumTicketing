@@ -8,8 +8,8 @@ gem 'ransack',          github: 'activerecord-hackery/ransack'      # Require fo
 gem 'formtastic',       github: 'justinfrench/formtastic'           # Require for ActiveAdmin to work with Rails 4.1
 gem 'devise'                                                 # Authentication
 
+gem 'active_admin_importable'
 
-gem 'activeadmin-translate'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 # Use sqlite3 as the database for Active Record

@@ -64,10 +64,7 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    activeadmin-translate (0.2.2)
-      activeadmin
-      globalize3
-      railties
+    active_admin_importable (1.1.2)
     activejob (4.2.5.1)
       activesupport (= 4.2.5.1)
       globalid (>= 0.3.0)
@@ -127,9 +124,6 @@ GEM
     formtastic_i18n (0.5.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-    globalize3 (0.1.0)
-      activemodel (>= 3.0.0)
-      activerecord (>= 3.0.0)
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -237,8 +231,8 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  active_admin_importable
   activeadmin!
-  activeadmin-translate
   activemerchant (~> 1.57)
   bootstrap-sass (~> 3.3, >= 3.3.6)
   byebug
