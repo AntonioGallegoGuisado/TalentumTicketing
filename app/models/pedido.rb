@@ -1,7 +1,9 @@
 class Pedido < ActiveRecord::Base
   
   
-  has_many :producto
+  belongs_to :producto
+  has_many :codigo
+  has_many :entrada
   has_one :factura
   #pedido.includes(:productos, :facturas)
   

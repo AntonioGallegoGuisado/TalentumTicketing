@@ -7,13 +7,12 @@ class CreateProductos < ActiveRecord::Migration
       t.string :imagen
       t.decimal :precio
       t.string :estado
-      t.integer :iniciales
-      t.integer :disponibles
+      t.integer :stock
       t.string :tipoProducto
 
       t.timestamps null: false
       
-      t.belongs_to :pedido, index: true
+
       
     end
   end

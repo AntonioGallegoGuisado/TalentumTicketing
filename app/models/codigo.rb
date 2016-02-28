@@ -1,6 +1,7 @@
 class Codigo < ActiveRecord::Base
   
   belongs_to :producto
+  belongs_to :pedido
   #has_one :producto
   #codigo.includes(:productos)
   

@@ -1,6 +1,7 @@
 class Producto < ActiveRecord::Base
   
-  belongs_to :pedido
+  #belongs_to :pedido
+  has_many :pedido
   has_many :codigo
   has_many :entrada
   #producto.includes(:codigos, :entradas)

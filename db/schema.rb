@@ -52,8 +52,10 @@ ActiveRecord::Schema.define(version: 20160225103954) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "producto_id"
+    t.integer  "pedido_id"
   end
 
+  add_index "codigos", ["pedido_id"], name: "index_codigos_on_pedido_id"
   add_index "codigos", ["producto_id"], name: "index_codigos_on_producto_id"
 
   create_table "destinatarios", force: :cascade do |t|
@@ -68,8 +70,10 @@ ActiveRecord::Schema.define(version: 20160225103954) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "producto_id"
+    t.integer  "pedido_id"
   end
 
+  add_index "entradas", ["pedido_id"], name: "index_entradas_on_pedido_id"
   add_index "entradas", ["producto_id"], name: "index_entradas_on_producto_id"
 
   create_table "facturas", force: :cascade do |t|
@@ -91,13 +95,22 @@ ActiveRecord::Schema.define(version: 20160225103954) do
 
   create_table "pedidos", force: :cascade do |t|
     t.string   "mail"
+    t.string   "nombre"
+    t.string   "calle"
+    t.string   "numero"
+    t.string   "cp"
+    t.string   "localidad"
+    t.string   "provincia"
     t.decimal  "precio"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.decimal  "cantidad"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "producto_id"
     t.integer  "factura_id"
   end
 
   add_index "pedidos", ["factura_id"], name: "index_pedidos_on_factura_id"
+  add_index "pedidos", ["producto_id"], name: "index_pedidos_on_producto_id"
 
   create_table "productos", force: :cascade do |t|
     t.string   "nombre"
@@ -106,14 +119,10 @@ ActiveRecord::Schema.define(version: 20160225103954) do
     t.string   "imagen"
     t.decimal  "precio"
     t.string   "estado"
-    t.integer  "iniciales"
-    t.integer  "disponibles"
+    t.integer  "stock"
     t.string   "tipoProducto"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.integer  "pedido_id"
   end
-
-  add_index "productos", ["pedido_id"], name: "index_productos_on_pedido_id"
 
 end

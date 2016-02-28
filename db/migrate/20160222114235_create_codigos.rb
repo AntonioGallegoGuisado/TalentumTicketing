@@ -7,6 +7,7 @@ class CreateCodigos < ActiveRecord::Migration
       t.timestamps null: false
       
       t.belongs_to :producto, index: true
+      t.belongs_to :pedido, index: true
       
     end
   end
