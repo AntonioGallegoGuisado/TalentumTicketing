@@ -48,7 +48,7 @@ Tipo: <%=@productos.tipoProducto%><br/>
 	<%=text_field_tag(:cif )%><br/>
 	
 	Importe:<%=@productos.precio%><br/>
-	
+	<input type="hidden" name="id" value="<%=@id%>" />
 	<br/>
 	<%= submit_tag("Pagar" )%>
 	<% end %>
