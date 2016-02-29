@@ -1,6 +1,6 @@
 class Compra < ApplicationMailer
   
-  def correoCompra (destinatario,pedido,factura)
+  def correoCompra (destinatario,pedido,factura,codigoComprado)
   
   puts "Entra en correo compra"
   
@@ -8,6 +8,7 @@ class Compra < ApplicationMailer
   @factura=factura
   @pedido=pedido
   @destinatario=destinatario
+  @codigoComprado=codigoComprado
   mail(to: @destinatario, subject: 'Compra realizada')
   
   end

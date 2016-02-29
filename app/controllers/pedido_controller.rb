@@ -133,7 +133,15 @@ class PedidoController < ApplicationController
  
      #llamamos al mailer para enviar el correo
      puts "#{@pedido.mail},#{@pedido},#{@pedido.factura}"
-     Compra.correoCompra(@pedido.mail,@pedido,@pedido.factura).deliver#! if @pedido.status == "Completed"
+     if @producto.tipoProducto == "entrada"
+       codigoComprado=@entrada.codigo
+     end
+     
+     if @producto.tipoProducto == "codigo"
+       codigoComprado=@codigo.codigo
+     end
+     
+     Compra.correoCompra(@pedido.mail,@pedido,@pedido.factura,codigoComprado).deliver#! if @pedido.status == "Completed"
      #cuando paypal devuelva los parametros correctamente deberiamos enviar el correo solo cuando el status sea Completed
      
   end
