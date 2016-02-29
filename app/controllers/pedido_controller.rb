@@ -2,16 +2,19 @@ class PedidoController < ApplicationController
  
   def index
     @pedidos = Pedido.all
-    @productos = Producto.all
+        @productos = Producto.all
     for producto in @productos
+      productoId=producto.id
       if producto.tipoProducto == "entrada"
         entradas=Entrada.where(:vendido => false)
+        entradas=entradas.where(:producto_id => productoId)
         producto.stock=entradas.size
         producto.save
       end
       
       if producto.tipoProducto == "codigo"
         codigos=Codigo.where(:vendido => false)
+        codigos=codigos.where(:producto_id => productoId)
         producto.stock=codigos.size
         producto.save
       end
@@ -66,14 +69,18 @@ class PedidoController < ApplicationController
     
     #Buscamos el primer producto disponible
     if @producto.tipoProducto == "entrada"
+      productoId=@producto.id
       @entrada=Entrada.where(:vendido => false)
+      @entrada=@entrada.where(:producto_id => productoId)
       @entrada=@entrada.first
       puts "La entrada es: #{@entrada.codigo}"
       @entrada.vendido=true
     end
     
     if @producto.tipoProducto == "codigo"
+      productoId=@producto.id
       @codigo=Codigo.where(:vendido => false)
+      @codigo=@codigo.where(:producto_id => productoId)
       @codigo=@codigo.first
       puts "El codigo es: #{@codigo.codigo}"
       @codigo.vendido=true
