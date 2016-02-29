@@ -9,13 +9,15 @@ Rails.application.routes.draw do
   get '/producto/show'
   get '/codigos/index'
   get '/entradas/index'
-  get '/producto/buscar'
+  get '/producto/search'
   get 'codigos/index'
   get 'entradas/index'
   get '/pedido/create'
   get '/pedido/new'
   get '/pedido/index'
   get '/pedido/show'
+  get '/producto/codigos/index'
+  get '/producto/entradas/index'
   
   post "/pedido/:id" => "pedido#show"
   post "/hook" => "pedido#hook"

@@ -26,6 +26,7 @@ class ProductoController < ApplicationController
     #El .where devuelve el array con los registros que encuentra
     @listadoProductosEncontrados = Producto.where(["descripcion LIKE ?", "%#{palabra}%"])
     @productos = Producto.all
+    render :index
   end
   
 end
