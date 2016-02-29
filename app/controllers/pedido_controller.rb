@@ -2,16 +2,19 @@ class PedidoController < ApplicationController
  
   def index
     @pedidos = Pedido.all
-    @productos = Producto.all
+        @productos = Producto.all
     for producto in @productos
+      productoId=producto.id
       if producto.tipoProducto == "entrada"
         entradas=Entrada.where(:vendido => false)
+        entradas=entradas.where(:producto_id => productoId)
         producto.stock=entradas.size
         producto.save
       end
       
       if producto.tipoProducto == "codigo"
         codigos=Codigo.where(:vendido => false)
+        codigos=codigos.where(:producto_id => productoId)
         producto.stock=codigos.size
         producto.save
       end
