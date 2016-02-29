@@ -2,6 +2,21 @@ class PedidoController < ApplicationController
  
   def index
     @pedidos = Pedido.all
+    @productos = Producto.all
+    for producto in @productos
+      if producto.tipoProducto == "entrada"
+        entradas=Entrada.where(:vendido => false)
+        producto.stock=entradas.size
+        producto.save
+      end
+      
+      if producto.tipoProducto == "codigo"
+        codigos=Codigo.where(:vendido => false)
+        producto.stock=codigos.size
+        producto.save
+      end
+      
+    end
   end
   
   def show
@@ -22,7 +37,7 @@ class PedidoController < ApplicationController
     #modificar el formulario para poder introducir la cantidad
     @pedido.cantidad=1
     #incluir producto
-    id=params[:id]
+    id=params[:id].to_i
     @producto=Producto.find id
     @pedido.producto=@producto
     
@@ -38,7 +53,12 @@ class PedidoController < ApplicationController
     @factura.importe = params[:precio]
     #generamos el numero de factura
     #leemos el ultimo numero de la base de datos
+    #si no hay factura asignamos 0
     factura=Factura.last
+    if factura == nil
+      factura=Factura.new
+      factura.numeroFactura=0
+    end
     @factura.numeroFactura = (factura.numeroFactura+1)
     
     #relacionamos la factura con su pedido

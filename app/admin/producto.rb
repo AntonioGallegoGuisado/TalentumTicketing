@@ -1,6 +1,6 @@
 ActiveAdmin.register Producto do
 
-permit_params :nombre, :titular, :descripcion, :imagen, :precio, :estado, :iniciales, :disponibles, :tipoProducto,
+permit_params :nombre, :titular, :descripcion, :imagen, :precio, :estado, :tipoProducto, :stock
 
 active_admin_importable
 

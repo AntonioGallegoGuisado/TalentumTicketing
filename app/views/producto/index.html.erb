@@ -3,15 +3,20 @@
 		
 <section>
 			<%for producto in @productos %>
-			 <ul>
-			 	<li><h6><%=producto.titular%></h6> </li>
-			 	<li>
-					<a href="/producto/show?id=<%= producto.id %>"><%= image_tag producto.imagen.url(:thumb)%></a>
-			 	</li>	 	
-			 	<li>
-			 		<a href="/producto/show?id=<%= producto.id %>">Detalles del producto</a> 
-			 	</li>
-			 </ul>   		  
+			<%if producto.stock>0 && producto.estado=='activo'%>
+				 <ul>
+				 	<li><h6><%=producto.titular%></h6> </li>
+				 	<li>
+						<a href="/producto/show?id=<%= producto.id %>"><%= image_tag producto.imagen.url(:thumb)%></a>
+				 	</li>	 	
+				 	<li>
+				 		<a href="/producto/show?id=<%= producto.id %>">Detalles del producto</a> 
+				 	</li>
+				 	<li>
+				 		Unidades disponibles: <%=producto.stock%>
+				 	</li>
+				 </ul>   		  
+			 <%end%>
     		<%end%>
  </section>  
   		

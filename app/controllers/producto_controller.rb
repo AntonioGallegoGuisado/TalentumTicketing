@@ -1,6 +1,20 @@
 class ProductoController < ApplicationController
     def index
     @productos = Producto.all
+    for producto in @productos
+      if producto.tipoProducto == "entrada"
+        entradas=Entrada.where(:vendido => false)
+        producto.stock=entradas.size
+        producto.save
+      end
+      
+      if producto.tipoProducto == "codigo"
+        codigos=Codigo.where(:vendido => false)
+        producto.stock=codigos.size
+        producto.save
+      end
+      
+    end
     end
   
   def show
