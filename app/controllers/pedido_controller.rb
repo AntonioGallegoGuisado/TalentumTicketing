@@ -9,10 +9,24 @@ class PedidoController < ApplicationController
   end
 
    def create
+    #insertamos los datos recogidos en el formulario
     @pedido = Pedido.new
     @pedido.mail = params[:mail]
     @pedido.precio = params[:precio]
-
+    @pedido.nombre = params[:nombre]
+    @pedido.calle = params[:calle]
+    @pedido.numero = params[:numero]
+    @pedido.cp = params[:cp]
+    @pedido.localidad = params[:localidad]
+    @pedido.provincia = params[:provincia]
+    #modificar el formulario para poder introducir la cantidad
+    @pedido.cantidad=1
+    #incluir producto
+    id=params[:id]
+    @producto=Producto.find id
+    @pedido.producto=@producto
+    
+    #insertamos los datos recogidos en el formulario
     @factura = Factura.new
     @factura.nombre = params[:nombre]
     @factura.calle = params[:calle]
@@ -22,11 +36,44 @@ class PedidoController < ApplicationController
     @factura.cif = params[:cif]
     @factura.provincia = params[:provincia]
     @factura.importe = params[:precio]
-    @factura.numeroFactura = @pedido.id
- 
+    #generamos el numero de factura
+    #leemos el ultimo numero de la base de datos
+    factura=Factura.last
+    @factura.numeroFactura = (factura.numeroFactura+1)
+    
+    #relacionamos la factura con su pedido
     @pedido.factura = @factura
-
+    
+    #Buscamos el primer producto disponible
+    if @producto.tipoProducto == "entrada"
+      @entrada=Entrada.where(:vendido => false)
+      @entrada=@entrada.first
+      puts "La entrada es: #{@entrada.codigo}"
+      @entrada.vendido=true
+    end
+    
+    if @producto.tipoProducto == "codigo"
+      @codigo=Codigo.where(:vendido => false)
+      @codigo=@codigo.first
+      puts "El codigo es: #{@codigo.codigo}"
+      @codigo.vendido=true
+    end
+    
+    #Guardamos el pedido
     @pedido.save
+    
+    #Relacionamos la entrada o el codigo con el pedido
+    if @producto.tipoProducto == "entrada"
+      #le asignamos la id del pedido a la entrada
+      @entrada.pedido_id=@pedido.id
+      @entrada.save
+    end
+    
+    if @producto.tipoProducto == "codigo"
+      #le asignamos la id del pedido al codigo
+      @codigo.pedido_id=@pedido.id
+      @codigo.save
+    end
     
     if @pedido.save
       redirect_to @pedido.paypal_url("/pedido/index")
@@ -41,6 +88,7 @@ class PedidoController < ApplicationController
 
   def new
     @productos = Producto.find(params[:id])
+    @id=params[:id]
   end
   
    protect_from_forgery except: [:hook]
@@ -50,7 +98,7 @@ class PedidoController < ApplicationController
     status = params[:payment_status]
     if status == "Completed"
       @pedido = Pedido.find params[:invoice]
-      @pedido.update_attributes notification_params: params, status: status, transaction_id: params[:txn_id], purchased_at: Time.now
+      @pedido.update_attributes notification_params: params, status: "Completed", transaction_id: params[:txn_id], purchased_at: Time.now
     end
     render nothing: true
   end
@@ -60,7 +108,7 @@ class PedidoController < ApplicationController
   def generarCorreo
     
     
-    puts "***** id pedido: #{@pedido.id}"
+    #puts "***** id pedido: #{@pedido.id}"
     
     
     # #leemos la base de datos
@@ -85,7 +133,8 @@ class PedidoController < ApplicationController
  
      #llamamos al mailer para enviar el correo
      puts "#{@pedido.mail},#{@pedido},#{@pedido.factura}"
-     Compra.correoCompra(@pedido.mail,@pedido,@pedido.factura).deliver
+     Compra.correoCompra(@pedido.mail,@pedido,@pedido.factura).deliver#! if @pedido.status == "Completed"
+     #cuando paypal devuelva los parametros correctamente deberiamos enviar el correo solo cuando el status sea Completed
      
   end
 end
