@@ -9,10 +9,8 @@ class CreateProductos < ActiveRecord::Migration
       t.string :estado
       t.integer :stock
       t.string :tipoProducto
-
-      t.timestamps null: false
       
-
+      t.timestamps null: false
       
     end
   end

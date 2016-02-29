@@ -4,7 +4,7 @@
 			 <ul>
 			 	<li><h6><%=productoCodigo.titular%></h6> </li>
 			 	<li>
-			 		<a href="/producto/detalles_producto?id=<%= productoCodigo.id %>"><%= image_tag("codigo-qr.jpg", :alt => "Codigo") %></a>
+			 		<a href="/producto/show?id=<%= productoCodigo.id %>"><%= image_tag productoCodigo.imagen.url(:thumb)%></a>
 			 	</li>	 	
 			 	<li>
 			 		<a href="/producto/detalles_producto?id=<%= productoCodigo.id %>">Detalles del producto</a> 

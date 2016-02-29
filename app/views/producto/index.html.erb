@@ -6,11 +6,7 @@
 			 <ul>
 			 	<li><h6><%=producto.titular%></h6> </li>
 			 	<li>
-				 	<%if producto.tipoProducto == "codigo"%>
-				 		<a href="/producto/show?id=<%= producto.id %>"><%= image_tag(producto.imagen, :alt => "Codigo") %></a>
-				 	<%else%>
-				 		<a href="/producto/show?id=<%= producto.id %>"><%= image_tag(producto.imagen, :alt => "entrada") %></a>
-				 	<%end%>
+					<a href="/producto/show?id=<%= producto.id %>"><%= image_tag producto.imagen.url(:thumb)%></a>
 			 	</li>	 	
 			 	<li>
 			 		<a href="/producto/show?id=<%= producto.id %>">Detalles del producto</a> 

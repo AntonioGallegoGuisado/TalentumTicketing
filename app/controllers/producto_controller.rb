@@ -4,7 +4,7 @@ class ProductoController < ApplicationController
     end
   
   def show
-    @productos = Producto.find(params[:id])
+    @producto = Producto.find(params[:id])
   end
   
   def buscar
@@ -13,5 +13,5 @@ class ProductoController < ApplicationController
     @listadoProductosEncontrados = Producto.where(["descripcion LIKE ?", "%#{palabra}%"])
     @productos = Producto.all
   end
-
+  
 end

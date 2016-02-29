@@ -11,6 +11,12 @@ class Producto < ActiveRecord::Base
   #  f.mostrar=self.nombre
   #end
   
+  
+  #Para que meta la foto en la base de datos
+  has_attached_file :imagen,styles: { medium: '400x200', thumb: '100x100'}
+  #Estamos validando que le estemos introduciendo una imagen, en teoría este formato coge cualquier extensión
+  validates_attachment_content_type :imagen, content_type: /\Aimage\/.*\Z/
+  
   def to_s
     "#{self.nombre}"
   end
