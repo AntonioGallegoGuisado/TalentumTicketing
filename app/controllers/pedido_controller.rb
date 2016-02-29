@@ -69,14 +69,18 @@ class PedidoController < ApplicationController
     
     #Buscamos el primer producto disponible
     if @producto.tipoProducto == "entrada"
+      productoId=@producto.id
       @entrada=Entrada.where(:vendido => false)
+      @entrada=@entrada.where(:producto_id => productoId)
       @entrada=@entrada.first
       puts "La entrada es: #{@entrada.codigo}"
       @entrada.vendido=true
     end
     
     if @producto.tipoProducto == "codigo"
+      productoId=@producto.id
       @codigo=Codigo.where(:vendido => false)
+      @codigo=@codigo.where(:producto_id => productoId)
       @codigo=@codigo.first
       puts "El codigo es: #{@codigo.codigo}"
       @codigo.vendido=true
