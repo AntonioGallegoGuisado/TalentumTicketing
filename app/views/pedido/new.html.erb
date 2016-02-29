@@ -5,20 +5,20 @@
 El producto seleccionado ha sido: <%=@productos.titular%> <br/>
 <!-- producto -> descripción -->
 Descripción:<%=@productos.descripcion%><br/>
-Imagen:<img  src="<%=@productos.imagen%>"/><br/>
+Imagen:<img src="<%=@productos.imagen%>"/><br/>
 Precio:<%=@productos.precio%><br/>
 Tipo: <%=@productos.tipoProducto%><br/>
 
 
 <!-- Enlace de vuelta al detalle -->
-<a href="/producto/detalles_producto?id=<%= @productos.id %>">Volver</a>
+<a href="/producto/show?id=<%= @productos.id %>">Volver</a>
 
 <br />
 <br/>
 
 <h4>Rellene los datos del pedido</h4>
 <!-- Formulario de registro del usuario para el pedido-->
-<%= form_tag({controller:"pedido",action:"pagarVista"}, method:"get") do %>
+<%= form_tag({controller:"pedido",action:"create"}, method:"get") do %>
 	<br/>
 	<%=label_tag(:mail, "Direccion de correo:")%>
 	<%=email_field_tag(:mail )%><br/>
@@ -38,9 +38,11 @@ Tipo: <%=@productos.tipoProducto%><br/>
 	<%=label_tag(:cp, "cp:")%>
 	<%=text_field_tag(:cp )%><br/>
 	
-	
 	<%=label_tag(:localidad, "localidad:")%>
 	<%=text_field_tag(:localidad)%><br/>
+	
+	<%=label_tag(:provincia, "provincia:")%>
+	<%=text_field_tag(:provincia)%><br/>
 	
 	<%=label_tag(:cif, "cif:")%>
 	<%=text_field_tag(:cif )%><br/>

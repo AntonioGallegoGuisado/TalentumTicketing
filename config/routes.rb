@@ -1,24 +1,24 @@
 Rails.application.routes.draw do
-  get 'codigos/index'
-
-  get 'entradas/index'
-
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
   root to: "producto#index"
-  
-   get ':controller(/:action(/:id(.:format)))'
-  
+
   get '/producto/index'
-  get '/producto/detalles_producto'
+  get '/producto/show'
   get '/codigos/index'
   get '/entradas/index'
   get '/producto/buscar'
+  get 'codigos/index'
+  get 'entradas/index'
+  get '/pedido/create'
+  get '/pedido/new'
+  get '/pedido/index'
+  get '/pedido/show'
   
-  get '/pedido/pagarVista'
+  post "/pedido/:id" => "pedido#show"
+  post "/hook" => "pedido#hook"
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

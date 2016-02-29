@@ -3,9 +3,12 @@ class PedidoController < ApplicationController
   def index
     @pedidos = Pedido.all
   end
+  
+  def show
+    @pedidos = Pedido.all
+  end
 
-  def pagarVista
-
+   def create
     @pedido = Pedido.new
     @pedido.mail = params[:mail]
     @pedido.precio = params[:precio]
@@ -17,18 +20,39 @@ class PedidoController < ApplicationController
     @factura.cp = params[:cp]
     @factura.localidad = params[:localidad]
     @factura.cif = params[:cif]
-
+    @factura.provincia = params[:provincia]
     @factura.importe = params[:precio]
-
-    #TODO: generar estos 2 campos correctamente
-    @factura.numeroFactura = 5
-    @factura.provincia = 'Madrid'
-
-    @pedido.factura= @factura
+    @factura.numeroFactura = @pedido.id
+ 
+    @pedido.factura = @factura
 
     @pedido.save
     
-    generarCorreo
+    if @pedido.save
+      redirect_to @pedido.paypal_url("/pedido/index")
+     
+    else
+      render :new
+    end
+    
+     generarCorreo
+      
+  end
+
+  def new
+    @productos = Producto.find(params[:id])
+  end
+  
+   protect_from_forgery except: [:hook]
+   
+  def hook
+    params.permit! # Permit all Paypal input params
+    status = params[:payment_status]
+    if status == "Completed"
+      @pedido = Pedido.find params[:invoice]
+      @pedido.update_attributes notification_params: params, status: status, transaction_id: params[:txn_id], purchased_at: Time.now
+    end
+    render nothing: true
   end
 
   private

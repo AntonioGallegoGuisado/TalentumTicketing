@@ -3,12 +3,7 @@ class ProductoController < ApplicationController
     @productos = Producto.all
     end
   
-  def detalles_producto
-    @productos = Producto.find(params[:id])
-   
-  end
-  
-   def formularioRegistro
+  def show
     @productos = Producto.find(params[:id])
   end
   

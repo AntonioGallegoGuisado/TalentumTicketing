@@ -1,0 +1,9 @@
+
+<h1><%= @productos.titular %></h1>
+
+<%= @productos.descripcion%>
+<br>
+<%= @productos.precio%>
+<br>
+<a href="/pedido/new?id=<%= @productos.id %>">Comprar</a>
+<a href="/producto/index">Volver</a>
