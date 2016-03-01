@@ -3,23 +3,24 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  root to: "producto#index"
-
-  get '/producto/index'
-  get '/producto/show'
-  get '/codigos/index'
-  get '/entradas/index'
-  get '/producto/search'
-  get 'codigos/index'
-  get 'entradas/index'
-  get '/pedido/create'
-  get '/pedido/new'
-  get '/pedido/index'
-  get '/pedido/show'
-  get '/producto/codigos/index'
-  get '/producto/entradas/index'
+  root to: "productos#index"
   
-  post "/pedido/:id" => "pedido#show"
+  get '/productos' => "productos#index"
+  get '/productos/index'
+  get '/productos/show'
+  get '/productos/codigos/index' => 'codigos#index'
+  get '/productos/entradas/index' => 'entradas#index'
+  get '/productos/search'
+  #get 'codigos/index'
+  #get 'entradas/index'
+  get '/pedidos/create'
+  get '/pedidos/new'
+  get '/pedidos/index'
+  get '/pedidos/show'
+  get '/productos/codigos/index'
+  get '/productos/entradas/index'
+  
+  post "/pedidos/:id" => "pedidos#show"
   post "/hook" => "pedido#hook"
 
   # You can have the root of your site routed with "root"

@@ -1,4 +1,4 @@
-class PedidoController < ApplicationController
+class PedidosController < ApplicationController
  
   def index
     @pedidos = Pedido.all
@@ -103,7 +103,7 @@ class PedidoController < ApplicationController
     end
     
     if @pedido.save
-      redirect_to @pedido.paypal_url("/pedido/index")
+      redirect_to @pedido.paypal_url("/pedidos/index")
      
     else
       render :new
