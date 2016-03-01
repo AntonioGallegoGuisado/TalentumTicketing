@@ -24,6 +24,18 @@
       <li><a class="enlace" href="/entradas/index">Entradas</a></li>
       <li><a class="enlace" href="/codigos/index">Códigos</a></li>
     </ul>
+ <% if params[:busqueda]%>
+ 
+ 	<form class="navbar-form navbar-left" role="search" action="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Buscar" name="busqueda">
+      </div>
+      <button type="submit" class="btn btn-default">Enviar</button>
+    </form>
+  </div>
+</nav>
+
+ <% else%>
  
     <form class="navbar-form navbar-left" role="search" action="producto/search">
       <div class="form-group">
@@ -34,6 +46,7 @@
   </div>
 </nav>
 
+<% end %>
 
 
 <!-- <header class="cabecera">
