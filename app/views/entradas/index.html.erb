@@ -7,7 +7,7 @@
 					<a href="/producto/show?id=<%= productoEntrada.id %>"><%= image_tag productoEntrada.imagen.url(:thumb)%></a>
 			 	</li>	 	
 			 	<li>
-			 		<a href="/producto/detalles_producto?id=<%= productoEntrada.id %>">Detalles del producto</a> 
+			 		<a href="/producto/show?id=<%= productoEntrada.id %>">Detalles del producto</a> 
 			 	</li>
 			 	<li>
 				Unidades disponibles: <%= productoEntrada.stock%>
