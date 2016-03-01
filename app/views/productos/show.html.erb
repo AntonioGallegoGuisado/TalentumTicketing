@@ -1,11 +1,15 @@
 
-<h1><%= @producto.titular %></h1>
+<%= image_tag @producto.imagen.url(:medium)%>
+
+<%= @producto.titular %>
+<br>
+
 
 <%= @producto.descripcion%>
 <br>
 <%= @producto.precio%>
 <br>
-<%= image_tag @producto.imagen.url(:medium)%>
+
 <br>
 <a href="/pedidos/new?id=<%= @producto.id %>">Comprar</a>
 <a href="/productos/index">Volver</a>

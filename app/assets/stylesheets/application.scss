@@ -16,8 +16,33 @@
 
 @import "bootstrap";
 
-// body { background-image: url('background.jpg') !important; }
+/*#body { background-image: url('background.jpg') !important; }*/
+
+body {
+    background-color:#EDEDED;
+}
 
 a.enlace {
   text-decoration: none;
+}
+
+.pie {
+  color:#008BE0;
+  margin-left:2em;
+}
+
+#imagenproducto{
+
+  float:right;
+}
+
+.titular{ font-size: 1.5em;
+
+}
+
+.unidadesdisponibles{ font-size: 1em;
+}
+
+#hola{
+  margin:2em;
 }
