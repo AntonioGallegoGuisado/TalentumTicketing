@@ -24,8 +24,8 @@ ActiveAdmin.register_page "Dashboard" do
       
  
       column do
-        panel "Productos Activos" do
-          table_for Producto.order("created_at desc").limit(10).map do
+        panel "Productos ordenados por Stock" do
+          table_for Producto.order("stock asc").limit(10).map do
             column("Nombre"){|order| order.nombre                                    }
             column("Estado"){|order| order.estado                                    }
             column("Tipo de Producto"){|order| order.tipoProducto                                    } 

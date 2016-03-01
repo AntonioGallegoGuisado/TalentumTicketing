@@ -1,14 +1,16 @@
 class Compra < ApplicationMailer
   
-  def correoCompra (destinatario,pedido,factura,codigoComprado)
+  def correoCompra (pedido,codigoComprado)
   
   puts "Entra en correo compra"
   
 
-  @factura=factura
+  @factura=pedido.factura
   @pedido=pedido
-  @destinatario=destinatario
+  @destinatario=pedido.mail
   @codigoComprado=codigoComprado
+  pdf = ReportPdf.new(pedido)
+  attachments['Detalle_Compra.pdf'] = pdf.render
   mail(to: @destinatario, subject: 'Compra realizada')
   
   end
