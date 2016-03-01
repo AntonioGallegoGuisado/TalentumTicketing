@@ -13,6 +13,8 @@
 			<p class="unidadesdisponibles">
 				Unidades disponibles: <%= producto.stock%>
 			</p>
+			<a href="/pedidos/new?id=<%= producto.id %>"><button type="submit" class="btn btn-info">Comprar</button></a>
+			<a href="/productos/show?id=<%= producto.id %>"><button type="submit" class="btn btn-success" role="button">Detalles</button></a>
 			
 		</div></a>
 		<%end%>
