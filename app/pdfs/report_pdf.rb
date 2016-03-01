@@ -12,7 +12,11 @@ class ReportPdf < Prawn::Document
   end
 
   def text_content
-      text "Detalle de su pedido", size: 15, style: :bold
-      text "Aqui mete el pedido"
-    end 
+      text "Detalle de su pedido", size: 16, style: :bold
+      text "Su numero de factura es: #{@pedido.factura}",:size => 12, :spacing => 4
+      text "Nombre: #{@pedido.nombre}", :size => 12, :spacing => 4
+      text "Importe:  #{@pedido.precio}",:size => 12, :spacing => 4
+      text "Codigo comprado: #{@pedido.codigo}"
+      
+   end 
 end
