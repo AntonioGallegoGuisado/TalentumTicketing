@@ -134,29 +134,6 @@ class PedidosController < ApplicationController
 
   def generarCorreo
     
-    
-    #puts "***** id pedido: #{@pedido.id}"
-    
-    
-    # #leemos la base de datos
-    # facturas= Factura.all
-    # pedidos = Pedido.all
-    # productos = Producto.all
-# 
-    # #buscamos el pedido, su factura y su producto
-    # for factura in facturas
-      # facturaActual = Factura.where(factura.numeroFactura => @facturas.numeroFactura)
-    # end
-    # for pedido in pedidos
-      # pedidoActual = Pedido.where(pedido.factura.numeroFactura => @facturas.numeroFactura)
-    # end
-    # for producto in productos
-      # productoActual=Producto.where(producto.pedido.factura.numeroFactura => @facturas.numeroFactura)
-    # end
-     
-     
-     #creamos el objeto destinatario
-     #destinatario = Destinatario.create({ email: @pedido.mail })
  
      #llamamos al mailer para enviar el correo
      puts "#{@pedido.mail},#{@pedido},#{@pedido.factura}"
@@ -168,8 +145,10 @@ class PedidosController < ApplicationController
        codigoComprado=@codigo.codigo
      end
      
-     Compra.correoCompra(@pedido.mail,@pedido,@pedido.factura,codigoComprado).deliver#! if @pedido.status == "Completed"
+
+     Compra.correoCompra(@pedido,codigoComprado).deliver#! if @pedido.status == "Completed"
      #cuando paypal devuelva los parametros correctamente deberiamos enviar el correo solo cuando el status sea Completed
      
   end
+  
 end
