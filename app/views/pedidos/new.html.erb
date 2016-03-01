@@ -1,55 +1,72 @@
-<h3>Resumen del pedido</h3>
-<!-- Resumen del pedido realizado-->
-
-<!-- producto -> titular -->
-El producto seleccionado ha sido: <%=@productos.titular%> <br/>
-<!-- producto -> descripción -->
-Descripción:<%=@productos.descripcion%><br/>
-Imagen:<img src="<%=@productos.imagen%>"/><br/>
-Precio:<%=@productos.precio%><br/>
-Tipo: <%=@productos.tipoProducto%><br/>
-
-
-<!-- Enlace de vuelta al detalle -->
-<a href="/productos/show?id=<%= @productos.id %>">Volver</a>
-
-<br />
-<br/>
-
-<h4>Rellene los datos del pedido</h4>
-<!-- Formulario de registro del usuario para el pedido-->
-<%= form_tag({controller:"pedidos",action:"create"}, method:"get") do %>
-	<br/>
-	<%=label_tag(:mail, "Direccion de correo:")%>
-	<%=email_field_tag(:mail )%><br/>
-	
-	<input type="hidden" name="precio" value="<%=@productos.precio%>"/>
-		
-
-	<%=label_tag(:nombre, "nombre:")%>
-	<%=text_field_tag(:nombre )%><br/>
-	
-	<%=label_tag(:calle, "calle:")%>
-	<%=text_field_tag(:calle )%><br/>
-	
-	<%=label_tag(:numero, "numero:")%>
-	<%=text_field_tag(:numero )%><br/>
-	
-	<%=label_tag(:cp, "cp:")%>
-	<%=text_field_tag(:cp )%><br/>
-	
-	<%=label_tag(:localidad, "localidad:")%>
-	<%=text_field_tag(:localidad)%><br/>
-	
-	<%=label_tag(:provincia, "provincia:")%>
-	<%=text_field_tag(:provincia)%><br/>
-	
-	<%=label_tag(:cif, "cif:")%>
-	<%=text_field_tag(:cif )%><br/>
-	
-	Importe:<%=@productos.precio%><br/>
-	<input type="hidden" name="id" value="<%=@productos.id%>" />
-	<br/>
-	<%= submit_tag("Pagar" )%>
-	<% end %>
+<div class="col-md-12">
+	<div class="row">
+		<div class="col-sm-2">
+			<h4>Resumen de su pedido</h4>
+			<span>Vas a comprar: <%= @productos.titular%></span> <br>
+			<img src="<%= @productos.imagen%>"/><br>
+			<span>Descripción<%= @productos.descripcion%></span><br>
+			<span>Precio: <%= @productos.precio%> euros</span>
+		</div>
+		<div class="col-sm-10">
+			<form class="form-horizontal" action="/pedidos/create">
+				<input type="hidden" name="precio" value="<%= @productos.precio%>"/>
+				<input type="hidden" name="id" value="<%= @productos.id%>" />
+				<div class="form-group">
+					<label class="control-label col-xs-3">Email</label>
+					<div class="col-xs-9">
+						<input type="email" name="mail"class="form-control" id="inputEmail" placeholder="Email">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-xs-3">Nombre</label>
+					<div class="col-xs-9">
+						<input type="text" name="nombre" class="form-control" placeholder="Nombre">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-xs-3">Calle</label>
+					<div class="col-xs-9">
+						<input type="text" name="calle" class="form-control" placeholder="Apellidos">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-xs-3" >Numero</label>
+					<div class="col-xs-9">
+						<input type="number" name="numero" class="form-control" placeholder="Telefono">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-xs-3" >Código Postal</label>
+					<div class="col-xs-9">
+						<input type="text" name="cp" class="form-control" placeholder="Telefono">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-xs-3" >Localidad</label>
+					<div class="col-xs-9">
+						<input type="text" name="localidad" class="form-control" placeholder="Telefono">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-xs-3" >Provincia</label>
+					<div class="col-xs-9">
+						<input type="text" name="provincia" class="form-control" placeholder="Telefono">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-xs-3" >CIF</label>
+					<div class="col-xs-9">
+						<input type="text" name="cif" class="form-control" placeholder="Telefono">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-offset-3 col-xs-9">
+						<input type="submit" class="btn btn-primary" value="Pagar">
+						<input type="reset" class="btn btn-default" value="Limpiar">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 
