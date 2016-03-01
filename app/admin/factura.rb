@@ -2,6 +2,16 @@ ActiveAdmin.register Factura do
 
 permit_params :nombre, :calle, :numero, :cp, :provincia, :localidad, :cif, :numeroFactura, :importe
 
+index do
+ selectable_column
+ column :nombre
+ column :calle
+ column :numero
+ column :numeroFactura
+ column :importe
+ actions
+end
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

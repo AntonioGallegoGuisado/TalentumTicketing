@@ -4,6 +4,14 @@ permit_params :codigo, :vendido, :producto_id
 
 active_admin_importable
 
+index do
+ selectable_column
+ column :id
+ column :codigo
+ column :vendido
+ actions
+end
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

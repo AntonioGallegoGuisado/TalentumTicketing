@@ -21,8 +21,8 @@
        otro elemento que se pueda ocultar al minimizar la barra -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
-      <li><a class="enlace" href="/entradas/index">Entradas</a></li>
-      <li><a class="enlace" href="/codigos/index">Códigos</a></li>
+      <li><a class="enlace" href="/productos/entradas/index">Entradas</a></li>
+      <li><a class="enlace" href="/productos/codigos/index">Códigos</a></li>
     </ul>
  <% if params[:busqueda]%>
  
@@ -37,7 +37,7 @@
 
  <% else%>
  
-    <form class="navbar-form navbar-left" role="search" action="/producto/search">
+    <form class="navbar-form navbar-left" role="search" action="/productos/search">
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Buscar" name="busqueda">
       </div>

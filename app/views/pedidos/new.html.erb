@@ -11,14 +11,14 @@ Tipo: <%=@productos.tipoProducto%><br/>
 
 
 <!-- Enlace de vuelta al detalle -->
-<a href="/producto/show?id=<%= @productos.id %>">Volver</a>
+<a href="/productos/show?id=<%= @productos.id %>">Volver</a>
 
 <br />
 <br/>
 
 <h4>Rellene los datos del pedido</h4>
 <!-- Formulario de registro del usuario para el pedido-->
-<%= form_tag({controller:"pedido",action:"create"}, method:"get") do %>
+<%= form_tag({controller:"pedidos",action:"create"}, method:"get") do %>
 	<br/>
 	<%=label_tag(:mail, "Direccion de correo:")%>
 	<%=email_field_tag(:mail )%><br/>
