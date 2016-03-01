@@ -4,6 +4,17 @@ permit_params :nombre, :titular, :descripcion, :imagen, :precio, :estado, :tipoP
 
 active_admin_importable
 
+index do
+  selectable_column
+  column :nombre
+  column :titular
+  column :imagen
+  column :estado
+  column :tipoProducto
+  column :stock
+  actions
+end
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

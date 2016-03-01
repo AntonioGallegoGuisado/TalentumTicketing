@@ -4,10 +4,10 @@
 			 <ul>
 			 	<li><h6><%=productoCodigo.titular%></h6> </li>
 			 	<li>
-			 		<a href="/producto/show?id=<%= productoCodigo.id %>"><%= image_tag productoCodigo.imagen.url(:thumb)%></a>
+			 		<a href="/productos/show?id=<%= productoCodigo.id %>"><%= image_tag productoCodigo.imagen.url(:thumb)%></a>
 			 	</li>	 	
 			 	<li>
-			 		<a href="/producto/show?id=<%= productoCodigo.id %>">Detalles del producto</a> 
+			 		<a href="/productos/show?id=<%= productoCodigo.id %>">Detalles del producto</a> 
 			 	</li>
 			 	<li>
 				Unidades disponibles: <%= productoCodigo.stock%>
