@@ -24,7 +24,7 @@ class PedidosController < ApplicationController
   
   def show
     @@mail.deliver_now
-    @pedidos = Pedido.all
+    @pedido = Pedido.last
   end
 
    def create
