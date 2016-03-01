@@ -23,6 +23,7 @@ class PedidosController < ApplicationController
   end
   
   def show
+    @@mail.deliver_now
     @pedidos = Pedido.all
   end
 
@@ -146,7 +147,7 @@ class PedidosController < ApplicationController
      end
      
 
-     Compra.correoCompra(@pedido,codigoComprado).deliver#! if @pedido.status == "Completed"
+     @@mail=Compra.correoCompra(@pedido,codigoComprado)#.deliver#! if @pedido.status == "Completed"
      #cuando paypal devuelva los parametros correctamente deberiamos enviar el correo solo cuando el status sea Completed
      
   end
