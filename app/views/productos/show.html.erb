@@ -1,15 +1,27 @@
+<div class="container">
+<div class="col-md-12">
+	<div class="row">
+		<div class="col-sm-2">
+			<%= image_tag @producto.imagen.url(:medium)%>
+		</div>
+		<div class="col-sm-10">
+			<%= @producto.titular %>
+			<br>
 
-<%= image_tag @producto.imagen.url(:medium)%>
+			<%= @producto.descripcion%>
+			<br>
+			<%= @producto.precio%>
+			<br>
 
-<%= @producto.titular %>
-<br>
+			<br>
+			<button type="button" class="btn btn-info" target="/pedidos/new?id=<%= @producto.id %>">Ir a Comprar</button> 
+			<a href="/productos/index">Volver</a>
+		</div>
+	</div>
+</div>
+</div>
 
 
-<%= @producto.descripcion%>
-<br>
-<%= @producto.precio%>
-<br>
 
-<br>
-<a href="/pedidos/new?id=<%= @producto.id %>">Comprar</a>
-<a href="/productos/index">Volver</a>
+
+
