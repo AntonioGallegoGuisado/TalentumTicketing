@@ -13,7 +13,7 @@ class Producto < ActiveRecord::Base
   
   
   #Para que meta la foto en la base de datos
-  has_attached_file :imagen,styles: { medium: '325x325', thumb: '175x175'}
+  has_attached_file :imagen,styles: { medium: '275x275', thumb: '110x110'}
   #Estamos validando que le estemos introduciendo una imagen, en teoría este formato coge cualquier extensión
   validates_attachment_content_type :imagen, content_type: /\Aimage\/.*\Z/
   
