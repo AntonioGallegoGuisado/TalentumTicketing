@@ -1,19 +1,33 @@
-<section>
-			<%for producto in @listadoProductosEncontrados %>
-			 <ul>
-			 	<li><h6><%=producto.titular%></h6> </li>
-			 	<li>
-				 	<%if producto.tipoProducto == "codigo"%>
-				 		<a href="/productos/show?id=<%= producto.id %>"><%= image_tag("codigo-qr.jpg", :alt => "Codigo") %></a>
-				 	<%else%>
-				 		<a href="/productos/show?id=<%= producto.id %>"><%= image_tag("news_entrada.png", :alt => "entrada") %></a>
-				 	<%end%>
-			 	</li>	 	
-			 	<li>
-			 		<a href="/productos/show?id=<%= producto.id %>">Detalles del producto</a> 
-			 	</li>
-			 </ul>   		  
-    		<%end%>
- </section>  
-  		
- <p id="ref_admin"><a href="/admin">Admin</a></p>
+<div class="container">
+	<div class="row">
+		<%for producto in @listadoProductosEncontrados %>
+		<%if producto.stock>0 && producto.estado=='activo'%>
+		<a href="/productos/show?id=<%= producto.id %>">
+		<div id="hola"class="col-sm-6 col-md-4" style="background-color:white">
+			<p id="imagenproducto">
+			<%if producto.imagen_file_name%>
+				<a href="/productos/show?id=<%= producto.id %>"><%= image_tag producto.imagen.url(:thumb), class: "img-responsive aspect"%></a>
+				
+			<%else%>
+				<a href="/productos/show?id=<%= producto.id %>"><img src="<%=asset_path ('ticketinglogo.png')%>" class= 'img-responsive aspect'></a>
+			<%end%>
+			</p>
+			<p class="titular">
+				<%= producto.titular%>
+			</p>
+			<p class="unidadesdisponibles">
+				Unidades disponibles: <%= producto.stock%>
+			</p>
+			<a href="/pedidos/new?id=<%= producto.id %>"><button type="submit" class="btn btn-info">Comprar</button></a>
+			<a href="/productos/show?id=<%= producto.id %>"><button type="submit" class="btn btn-success" role="button">Detalles</button></a>
+			
+		</div></a>
+		<%end%>
+		<%end%>
+	</div>
+	
+</div>
+
+<p id="ref_admin">
+		<a href="/admin">Admin</a>
+	</p>

@@ -1,19 +1,30 @@
-<section>
-		
+<div class="container">
+		<div class="row">
 			<%for productoEntrada in @listadoProductosCodigo %>
-			 <ul>
-			 	<li><h6><%=productoEntrada.titular%></h6> </li>
-			 	<li>
-					<a href="/productos/show?id=<%= productoEntrada.id %>"><%= image_tag productoEntrada.imagen.url(:thumb)%></a>
-			 	</li>	 	
-			 	<li>
-			 		<a href="/productos/show?id=<%= productoEntrada.id %>">Detalles del producto</a> 
-			 	</li>
-			 	<li>
+			<div id="hola"class="col-sm-6 col-md-4" style="background-color:white">
+			<a href="/productos/show?id=<%= productoEntrada.id %>">
+		
+			<p id="imagenproducto">
+			<%if productoEntrada.imagen_file_name%>
+				<a href="/productos/show?id=<%= productoEntrada.id %>"><%= image_tag productoEntrada.imagen.url(:thumb), class: "img-responsive aspect"%></a>
+				
+			<%else%>
+				<a href="/productos/show?id=<%= productoEntrada.id %>"><img src="<%=asset_path ('ticketinglogo.png')%>" class= 'img-responsive aspect'></a>
+			<%end%>
+			</p>
+			<p class="titular">
+				<%= productoEntrada.titular%>
+			</p>
+			<p class="unidadesdisponibles">
 				Unidades disponibles: <%= productoEntrada.stock%>
-				</li>
-			 </ul>   		  
+			</p>
+			<a href="/pedidos/new?id=<%= productoEntrada.id %>"><button type="submit" class="btn btn-info">Comprar</button></a>
+			<a href="/productos/show?id=<%= productoEntrada.id %>"><button type="submit" class="btn btn-success" role="button">Detalles</button></a>
+			
+		</div></a>
     		<%end%>
- </section>  
+    	</div>
+</div>
+ 
   		
  <p id="ref_admin"><a href="/admin">Admin</a></p>
