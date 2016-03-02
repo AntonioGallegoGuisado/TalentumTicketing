@@ -4,11 +4,11 @@ class CreateFacturas < ActiveRecord::Migration
       t.string :nombre
       t.string :calle
       t.string :numero
-      t.integer :cp
+      t.string :cp
       t.string :provincia
       t.string :localidad
       t.string :cif
-      t.decimal :numeroFactura
+      t.integer :numeroFactura
       t.decimal :importe
 
       t.timestamps null: false

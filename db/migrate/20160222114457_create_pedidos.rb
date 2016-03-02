@@ -10,7 +10,7 @@ class CreatePedidos < ActiveRecord::Migration
       t.string :localidad
       t.string :provincia
       t.decimal :precio
-      t.decimal :cantidad
+      t.integer :cantidad
 
       t.timestamps null: false
       
