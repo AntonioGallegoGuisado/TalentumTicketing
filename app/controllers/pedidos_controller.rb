@@ -23,8 +23,18 @@ class PedidosController < ApplicationController
   end
   
   def show
-    @@mail.deliver_now
-    @pedido = Pedido.last
+    puts "*************************************************** SHOW *****************************************************"
+    puts params[:mc_gross]
+    puts params[:payment_status]
+    params.permit! # Permit all Paypal input params
+    status = params[:payment_status]
+    if status == "Completed"
+      @pedido = Pedido.find params[:invoice]
+      @pedido.update_attributes notification_params: params, status: "Completed", transaction_id: params[:txn_id], purchased_at: Time.now 
+      @@mail.deliver_now
+     @pedido = Pedido.last
+    end
+ 
   end
 
    def create
@@ -121,16 +131,6 @@ class PedidosController < ApplicationController
   
    protect_from_forgery except: [:hook]
    
-  def hook
-    params.permit! # Permit all Paypal input params
-    status = params[:payment_status]
-    if status == "Completed"
-      @pedido = Pedido.find params[:invoice]
-      @pedido.update_attributes notification_params: params, status: "Completed", transaction_id: params[:txn_id], purchased_at: Time.now
-    end
-    render nothing: true
-  end
-
   private
 
   def generarCorreo

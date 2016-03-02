@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get '/productos/entradas/index'
   
   post "/pedidos/:id" => "pedidos#show"
-  post "/hook" => "pedido#hook"
+  post "/hook" => "pedidos#hook"
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
