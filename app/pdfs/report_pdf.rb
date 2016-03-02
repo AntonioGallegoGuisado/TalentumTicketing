@@ -41,7 +41,7 @@ class ReportPdf < Prawn::Document
       move_down 15
       text "Su numero de factura es: #{@pedido.factura.numeroFactura}",:size => 12, :spacing => 4
       text "Nombre: #{@pedido.nombre}", :size => 12, :spacing => 4
-      text "Importe:  #{@pedido.precio.to_i} euros",:size => 12, :spacing => 4
+      text "Importe:  #{@pedido.precio} euros",:size => 12, :spacing => 4
       move_down 10
      stroke do
           horizontal_rule
