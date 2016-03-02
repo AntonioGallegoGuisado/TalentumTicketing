@@ -10,7 +10,7 @@ class ReportPdf < Prawn::Document
 
   def header
     #Insertamos el logo de Ticketing
-    image "#{Rails.root}/app/assets/images/ticketinglogo.png", width: 400, height: 50
+    image "#{Rails.root}/app/assets/images/ticketinglogo.png", width: 150, height: 28
   end
 
   def text_content
@@ -31,13 +31,35 @@ class ReportPdf < Prawn::Document
         codigoComprado=codigo.codigo
         productoComprado=@pedido.producto.titular
       end
-      
+      move_down 30      
       text "Detalle de su pedido", size: 16, style: :bold
+      move_down 10
+      stroke do
+          horizontal_rule
+          stroke_color '49a0ee'
+      end
+      move_down 15
       text "Su numero de factura es: #{@pedido.factura.numeroFactura}",:size => 12, :spacing => 4
       text "Nombre: #{@pedido.nombre}", :size => 12, :spacing => 4
-      text "Importe:  #{@pedido.precio}",:size => 12, :spacing => 4
+      text "Importe:  #{@pedido.precio.to_i} euros",:size => 12, :spacing => 4
+      move_down 10
+     stroke do
+          horizontal_rule
+          stroke_color '49a0ee'
+      end
+      move_down 15
       text "Producto comprado: #{productoComprado}",:size => 12, :spacing => 4
-      text "Codigo comprado: #{codigoComprado}",:size => 12, :spacing => 4
+      move_down 30
+      text "Codigo comprado",:size => 12, :spacing => 4, :align => :center
+      move_down 20
+      text "#{codigoComprado}", :size => 18, :spacing => 4, :align => :center   
+      move_down 10
+      stroke do
+          horizontal_rule
+          stroke_color '49a0ee'
+      end
+      move_down 15
+      text "Gracias por confiar en nosotros - Ticketing", size: 12, style: :italic
       
    end 
 end
