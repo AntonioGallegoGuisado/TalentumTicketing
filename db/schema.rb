@@ -80,11 +80,11 @@ ActiveRecord::Schema.define(version: 20160229075406) do
     t.string   "nombre"
     t.string   "calle"
     t.string   "numero"
-    t.integer  "cp"
+    t.string   "cp"
     t.string   "provincia"
     t.string   "localidad"
     t.string   "cif"
-    t.decimal  "numeroFactura"
+    t.integer  "numeroFactura"
     t.decimal  "importe"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20160229075406) do
     t.string   "localidad"
     t.string   "provincia"
     t.decimal  "precio"
-    t.decimal  "cantidad"
+    t.integer  "cantidad"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "producto_id"
