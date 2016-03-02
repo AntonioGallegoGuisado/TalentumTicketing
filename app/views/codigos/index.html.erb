@@ -18,7 +18,7 @@
 				<%= productoCodigo.titular%>
 			</p>
 			<p class="unidadesdisponibles">
-				Unidades disponibles: <%= productoCodigo.stock%>
+				<span class="stock">En Stock</span><i> (Quedan <%=productoCodigo.stock%>)</i>
 			</p>
 			<a href="/pedidos/new?id=<%= productoCodigo.id %>"><button type="submit" class="btn btn-info">Comprar</button></a>
 			<a href="/productos/show?id=<%= productoCodigo.id %>"><button type="submit" class="btn btn-success" role="button">Detalles</button></a>
