@@ -14,7 +14,7 @@
 
 	<!-- Agrupar los enlaces de navegación, los formularios y cualquier
 	otro elemento que se pueda ocultar al minimizar la barra -->
-
+	<article id="menulateral">
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav">
 			<li>
@@ -27,7 +27,7 @@
 
 		<% if params[:busqueda]%>
 
-		<form class="navbar-form navbar-right" role="search" action="search">
+		<form class="navbar-form navbar-left" role="search" action="search">
 			<div class="form-group">
 				<input type="text" class="form-control" placeholder="Buscar" name="busqueda">
 			</div>
@@ -52,6 +52,8 @@
 </nav>
 
 <% end %>
+
+</article>
 
 <!-- <header class="cabecera">
 <a href="/" class="titulocabecera"><h1>Bienvenido a nuestro Ticketing</h1></a>

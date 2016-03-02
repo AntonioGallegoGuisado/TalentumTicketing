@@ -9,7 +9,7 @@
 				<a href="/productos/show?id=<%= producto.id %>"><%= image_tag producto.imagen.url(:thumb), class: "img-responsive aspect"%></a>
 				
 			<%else%>
-				<a href="/productos/show?id=<%= producto.id %>"><img src="<%=asset_path ('ticketinglogo.png')%>" class= 'img-responsive aspect'></a>
+				<a href="/productos/show?id=<%= producto.id %>"><img src="<%=asset_path ('ticket.PNG')%>" class= 'img-responsive aspect'></a>
 			<%end%>
 			</p>
 			<p class="titular">
@@ -27,7 +27,3 @@
 	</div>
 	
 </div>
-
-<p id="ref_admin">
-		<a href="/admin">Admin</a>
-	</p>
