@@ -119,7 +119,7 @@ class PedidosController < ApplicationController
     else
       render :new
     end
-    
+     
      generarCorreo
       
   end

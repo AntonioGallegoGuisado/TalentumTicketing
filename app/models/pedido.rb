@@ -1,6 +1,5 @@
 class Pedido < ActiveRecord::Base
   
-  
   belongs_to :producto
   has_many :codigo
   has_many :entrada
@@ -22,6 +21,8 @@ class Pedido < ActiveRecord::Base
     }
     "#{Rails.application.secrets.paypal_host}/cgi-bin/webscr?" + values.to_query
   end
+  
+  
   
   #pedido.includes(:productos, :facturas)
   
