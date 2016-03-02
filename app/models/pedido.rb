@@ -13,9 +13,9 @@ class Pedido < ActiveRecord::Base
         cmd: "_xclick",
         upload: 1,
         return: "#{Rails.application.secrets.app_host}#{return_path}",
-        invoice: id,
+        invoice: id + 1000,
         amount: precio,
-        item_name: "Producto",
+        item_name: "Producto #{id}",
         item_number: id,
         quantity: '1',
         notify_url: "#{Rails.application.secrets.app_host}/hook"
