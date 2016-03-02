@@ -27,7 +27,7 @@ class ProductosController < ApplicationController
   def search
     palabra=params[:busqueda]
     #El .where devuelve el array con los registros que encuentra
-    @listadoProductosEncontrados = Producto.where(["descripcion LIKE ?", "%#{palabra}%"])
+    @listadoProductosEncontrados = Producto.where(["descripcion or titular LIKE ?", "%#{palabra}%"])
     @productos = Producto.all
    
   end
