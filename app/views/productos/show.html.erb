@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-sm-2">
 			<%if @producto.imagen_file_name%>
-				<%= image_tag @producto.imagen.url(:medium)%>, class: "img-responsive aspect"%>
+				<%= image_tag @producto.imagen.url(:medium), class: "img-responsive aspect"%>
 				
 			<%else%>
 				<img src="<%=asset_path ('ticketinglogo.png')%>" class= 'img-responsive aspect'>
