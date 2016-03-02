@@ -9,6 +9,7 @@ class Compra < ApplicationMailer
   @pedido=pedido
   @destinatario=pedido.mail
   @codigoComprado=codigoComprado
+  @producto=pedido.producto
   pdf = ReportPdf.new(pedido)
   attachments['Detalle_Compra.pdf'] = pdf.render
   mail(to: @destinatario, subject: 'Compra realizada')

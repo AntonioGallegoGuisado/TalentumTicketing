@@ -20,6 +20,7 @@ class ReportPdf < Prawn::Document
         entrada=entradas.where(:pedido_id => pedidoId)
         entrada=entrada.first
         codigoComprado=entrada.codigo
+        productoComprado=@pedido.producto.titular
       end
       
       if @pedido.producto.tipoProducto == "codigo"
@@ -28,13 +29,15 @@ class ReportPdf < Prawn::Document
         codigo=codigos.where(:pedido_id => pedidoId)
         codigo=codigo.first
         codigoComprado=codigo.codigo
+        productoComprado=@pedido.producto.titular
       end
       
       text "Detalle de su pedido", size: 16, style: :bold
       text "Su numero de factura es: #{@pedido.factura.numeroFactura}",:size => 12, :spacing => 4
       text "Nombre: #{@pedido.nombre}", :size => 12, :spacing => 4
       text "Importe:  #{@pedido.precio}",:size => 12, :spacing => 4
-      text "Codigo comprado: #{codigoComprado}"
+      text "Producto comprado: #{productoComprado}",:size => 12, :spacing => 4
+      text "Codigo comprado: #{codigoComprado}",:size => 12, :spacing => 4
       
    end 
 end
