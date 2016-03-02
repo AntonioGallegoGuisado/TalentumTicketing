@@ -4,7 +4,12 @@
 			<h4>Resumen de su pedido</h4>
 			<span>Vas a comprar: <%= @productos.titular%></span>
 			<br>
-			<img src="<%= @productos.imagen%>"/>
+			<%if @productos.imagen_file_name%>
+				<%= image_tag @productos.imagen.url(:medium), class: "img-responsive aspect"%>
+				
+			<%else%>
+				<img src="<%=asset_path ('ticket.PNG')%>" class= 'img-responsive aspect'>
+			<%end%>
 			<br>
 			<span>Descripción<%= @productos.descripcion%></span>
 			<br>
