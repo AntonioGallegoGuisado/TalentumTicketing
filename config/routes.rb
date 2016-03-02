@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get '/productos' => "productos#index"
   get '/productos/index'
   get '/productos/show'
-  get '/productos/codigos/index' => 'codigos#index'
-  get '/productos/entradas/index' => 'entradas#index'
+  get '/productos/codigos' => 'codigos#index'
+  get '/productos/entradas' => 'entradas#index' 
   get '/productos/search'
   #get 'codigos/index'
   #get 'entradas/index'
