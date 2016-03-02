@@ -1,25 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-  	<h1>Gracias por su compra</h1>
+	<head>
+		<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+	</head>
+	<body>
+		<header><span style="color: #26c2fb; font-size: 35px; font-weight: bold; font-family: Impact">Ticketing</span>
+		</header>
+		<h1>Gracias por su compra</h1>
+		<h2>Estos son los detalles de su pedido: </h2>
+		<hr />
+		
+		<h3>Datos de Facturación</h3>
+		<p>
+			<b>Número de Factura: </b> <%= @factura.numeroFactura.to_i%>
+		</p>
+		<p>
+			<b>Nombre: </b><%= @factura.nombre%>
+		</p>
+		<p>
+			<b>CIF/NIF: </b><%= @factura.cif%>
+		</p>
+		<p>
+			<b>Direccion: </b><%= @factura.calle%>, numero <%= @factura.numero%>
+		</p>
+		<p>
+			<b>Codigo postal: </b><%= @factura.cp%>
+		</p>
+		<p>
+			<b>Provincia: </b><%= @factura.provincia%>
+		</p>
+		<p>
+			<b>Localidad: </b><%= @factura.localidad%>
+		</p>
+		<hr />
+		<p>
+			<strong style="font-family: Helvetica">Importe: </span> <%= @factura.importe.to_i%> euros
+		</p>
 
-  	<p>
-  		Su numero de factura es <%=@factura.numeroFactura%><br />
-  		Sus datos de facturacion son:<br />
-  		Nombre <%=@factura.nombre%><br />
-  		CIF/NIF <%=@factura.cif%><br />
-  		Direccion <%=@factura.calle%>, numero <%=@factura.numero%><br />
-  		Codigo postal <%=@factura.cp%><br />
-  		Provincia <%=@factura.provincia%> <br />
-  		Localidad <%=@factura.localidad%><br />
-  		Importe <%=@factura.importe%><br />
-  		<br />
-  		Producto comprado: <%=@producto.titular%><br />
-  		Codigo comprado: <%=@codigoComprado%>
-  	</p>
-
-  </body>
+		<p>
+			<b>Has comprado: </b><%= @producto.titular%></p>
+			<div style="border: 1px solid black; width: 125px; height: 100px; margin: 0 auto; text-align: center;">
+				Código
+				<div style="border: 1px dotted black; width: 75px; height: 75px; margin: 0 auto; text-align: center;">
+					<span style="font-size: 20px; vertical-align: center" > <%= @codigoComprado%> </span >
+				</div></br><br><br>
+			</div>
+			<hr />
+			<footer style="text-align: center;">
+				<i>Gracias por confiar en nosotros - Ticketing</i>
+			</footer>
+	</body>
 </html>

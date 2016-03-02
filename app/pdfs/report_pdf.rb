@@ -10,7 +10,7 @@ class ReportPdf < Prawn::Document
 
   def header
     #Insertamos el logo de Ticketing
-    image "#{Rails.root}/app/assets/images/logoticketing3.png", width: 400, height: 50
+    image "#{Rails.root}/app/assets/images/ticketinglogo.png", width: 400, height: 50
   end
 
   def text_content
