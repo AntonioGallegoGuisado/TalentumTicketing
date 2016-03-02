@@ -4,12 +4,13 @@
 		<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 	</head>
 	<body>
-		<header><span style="color: #26c2fb; font-size: 35px; font-weight: bold; font-family: Impact">Ticketing</span>
+		<header>
+			<span style="color: #26c2fb; font-size: 35px; font-weight: bold; font-family: Impact">Ticketing</span>
 		</header>
 		<h1>Gracias por su compra</h1>
 		<h2>Estos son los detalles de su pedido: </h2>
 		<hr />
-		
+
 		<h3>Datos de Facturación</h3>
 		<p>
 			<b>Número de Factura: </b> <%= @factura.numeroFactura.to_i%>
@@ -38,16 +39,17 @@
 		</p>
 
 		<p>
-			<b>Has comprado: </b><%= @producto.titular%></p>
-			<div style="border: 1px solid black; width: 125px; height: 100px; margin: 0 auto; text-align: center;">
-				Código
-				<div style="border: 1px dotted black; width: 75px; height: 75px; margin: 0 auto; text-align: center;">
-					<span style="font-size: 20px; vertical-align: center" > <%= @codigoComprado%> </span >
-				</div></br><br><br>
+			<b>Has comprado: </b><%= @producto.titular%>
+		</p>
+		<div style="border: 1px solid black; width: 125px; height: 100px; margin: 0 auto; text-align: center;">
+			Código
+			<div style="border: 1px dotted black; text-align:center ;line-height:75px;width:75px;height:75px;font-size:20px; margin: 0 auto;">
+				<%= @codigoComprado%>
 			</div>
-			<hr />
-			<footer style="text-align: center;">
-				<i>Gracias por confiar en nosotros - Ticketing</i>
-			</footer>
+		</div>
+		<hr />
+		<footer style="text-align: center;">
+			<i>Gracias por confiar en nosotros - Ticketing</i>
+		</footer>
 	</body>
 </html>
