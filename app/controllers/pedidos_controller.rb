@@ -31,8 +31,25 @@ class PedidosController < ApplicationController
     if status == "Completed"
       @pedido = Pedido.find params[:invoice]
       @pedido.update_attributes notification_params: params, status: "Completed", transaction_id: params[:txn_id], purchased_at: Time.now 
-      @@mail.deliver_now
+      #@mail.deliver_now
      @pedido = Pedido.last
+     
+     #Recuperamos los datos necesarios para enviar el correo
+     @producto = @pedido.producto
+     
+     if @producto.tipoProducto == "entrada"
+      #localizamos la entrada vendida
+      @entrada=Entrada.where(:pedido_id => @pedido.id)
+      @entrada=@entrada.first
+    end
+    
+    if @producto.tipoProducto == "codigo"
+      #localizamos el codigo vendido
+      @codigo=Codigo.where(:pedido_id => @pedido.id)
+      @codigo=@codigo.first
+    end
+     
+     generarCorreo
     end
  
   end
@@ -120,7 +137,8 @@ class PedidosController < ApplicationController
       render :new
     end
      
-     generarCorreo
+     #ahora se llama al mailer al volver despues de hacer la compra
+     #generarCorreo
       
   end
 
@@ -147,7 +165,7 @@ class PedidosController < ApplicationController
      end
      
 
-     @@mail=Compra.correoCompra(@pedido,codigoComprado)#.deliver#! if @pedido.status == "Completed"
+     Compra.correoCompra(@pedido,codigoComprado).deliver! if @pedido.status == "Completed"
      #cuando paypal devuelva los parametros correctamente deberiamos enviar el correo solo cuando el status sea Completed
      
   end
