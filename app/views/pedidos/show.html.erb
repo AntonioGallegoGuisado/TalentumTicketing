@@ -1,13 +1,25 @@
 <div class="container">
-<h3>Enhorabuena por la compra</h3>
-<h4>Estos son los datos de su pedido:</h4>
-  
-<%= @pedido.nombre %>
+    <div class="centered text-center">
+        <h3>Enhorabuena por la compra</h3>
+			<h4>Estos son los datos de su pedido</h4>
+					<p class="alcentro">
+				<%= @pedido.nombre %>
+			</p>
 
-<%= @pedido.mail %>
+			<p class="alcentro">
+				<%= @pedido.mail %>
+			</p>
 
-<%= @pedido.producto.titular%>
-
-<a href="/"><button type="button" class="btn btn-success">¡Quiero comprar más!</button></a>
+			<p class="alcentro">
+				<%= @pedido.producto.titular%>
+			</p>
+		
+			<p class="alcentro">
+				<a href="/">
+				<button type="button" class="btn btn-success">
+					¡Quiero comprar más!
+				</button></a>
+			</p>
+    </div>
 </div>
 

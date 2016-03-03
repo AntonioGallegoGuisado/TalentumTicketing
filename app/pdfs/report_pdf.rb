@@ -39,7 +39,7 @@ class ReportPdf < Prawn::Document
           stroke_color '49a0ee'
       end
       move_down 15
-      text "Su numero de factura es: #{@pedido.factura.numeroFactura}",:size => 12, :spacing => 4
+      text "Su número de factura es: #{@pedido.factura.numeroFactura}",:size => 12, :spacing => 4
       text "Nombre: #{@pedido.nombre}", :size => 12, :spacing => 4
       text "Importe:  #{@pedido.precio} euros",:size => 12, :spacing => 4
       move_down 10
@@ -50,7 +50,7 @@ class ReportPdf < Prawn::Document
       move_down 15
       text "Producto comprado: #{productoComprado}",:size => 12, :spacing => 4
       move_down 30
-      text "Codigo comprado",:size => 12, :spacing => 4, :align => :center
+      text "Código comprado",:size => 12, :spacing => 4, :align => :center
       move_down 20
       text "#{codigoComprado}", :size => 18, :spacing => 4, :align => :center   
       move_down 10
