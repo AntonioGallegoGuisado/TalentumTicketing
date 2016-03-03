@@ -56,4 +56,5 @@ situacion
 
 Todos los menus tienen una amplia herramienta de busqueda
 
-
+Para poder incluir imagenes a los productos, sera necesario que ImageMagick este instalado en el 
+servidor de la aplicacion, si no se asigna ninguna imagen se cargara una por defecto
