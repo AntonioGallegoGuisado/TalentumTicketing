@@ -8,7 +8,12 @@ Documentacion de uso en la carpeta Documentacion
 Equipo de desarrollo:
 
  Domínguez Casas, Felipe
+ 
  Ferreras Alonso, Almudena
+ 
  Gallego Guisado, Antonio
+ 
  Muñoz Paules, Nuria
+ 
  Uceda Páez, Vanesa 
+ 
