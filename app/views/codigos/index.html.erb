@@ -2,6 +2,7 @@
 <div class="container">
 		<div class="row">
 			<%for productoCodigo in @listadoProductosCodigo %>
+			<% if productoCodigo.stock %>
 			<%if productoCodigo.stock>0 && productoCodigo.estado=='activo'%>
 			<div id="hola"class="col-sm-6 col-md-4" style="background-color:white">
 			<a href="/productos/show?id=<%= productoCodigo.id %>">
@@ -24,6 +25,7 @@
 			<a href="/productos/show?id=<%= productoCodigo.id %>"><button type="submit" class="btn btn-success" role="button">Detalles</button></a>
 			
 		</div></a>
+    		<%end%>
     		<%end%>
     		<%end%>
     	</div>
