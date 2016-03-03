@@ -1,6 +1,7 @@
 <div class="container">
 	<div class="row">
 		<%for producto in @productos %>
+		<% if producto.stock %>
 		<%if producto.stock>0 && producto.estado=='activo'%>
 		<a href="/productos/show?id=<%= producto.id %>">
 		<div id="hola"class="col-sm-6 col-md-4" style="background-color:white">
@@ -24,6 +25,7 @@
 		</div></a>
 		<%end%>
 		<%end%>
+			<% end %>
 	</div>
 	
 </div>
