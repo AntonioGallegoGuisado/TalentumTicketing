@@ -1,0 +1,26 @@
+Los usuarios no necesitan estar registrados para realizar ninguna accion
+
+Los administradores pueden utilizar la aplicacion como usuario sin necesidad
+de desloguearse
+
+El buscador mostrara todos los productos disponibles que tengan en el titular
+o la descripcion el texto introducido por el usuario
+
+Cuando se agote el stock de un produco desaparecera automaticamente de la web
+
+En el formulario de compra debe rellenarse como minimo Nombre y Email
+
+Al realizar una compra, se redirecciona al sandbox de Paypal para realizar el
+pago, cuando se vuelve a nuestra aplicacion tras realizar el pago se genera
+y envia un correo electronico con un fichero PDF, tanto el correo como el PDF
+contienen el codigo comprado
+
+El logo del menu superior redirecciona a la pagina inicial
+
+Los botones del menu filtran por tipo de producto
+
+Al pulsar el boton de Pagar, le asignara un codigo al pedido del usuario actual
+Evitando que compras simultaneas puedan obtener el mismo codigo para dos
+usuarios diferentes
+
+Todas las vistas de usuario se adaptan al dispositivo desde el que acceda

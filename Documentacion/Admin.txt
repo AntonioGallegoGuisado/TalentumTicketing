@@ -1,0 +1,59 @@
+Documentacion de uso de administradores
+
+Para acceder al menu de administracion añadir /admin en la ruta del navegador
+
+Todos los menus requieren log-in, consulte con el administrador para obtener claves de acceso
+La primera vez que se accede el usuario por defecto es:
+
+	Usuario admin@example.com
+	Contraseña: password
+
+Es muy recomendable crear un nuevo administrador y eliminar el administrador por defecto
+
+
+Barra superior del menu:
+
+- El logotipo redirecciona a la pagina inicial de usuarios
+
+- Dashboard muestra un resumen:
+	-Ultimos pedidos (ordenados por fecha mostrando primero los mas recientes)
+	-Productos (ordenados por Stock mostrando primero los que tengan menor stock)
+
+-Admin Users
+	Menu de administracion de los usuarios con privilegios de administrador de la aplicacion
+	
+-Codigos
+	listado de todos los codigos almacenados en la aplicacion
+	Para poner a la venta 1 codigo, debe asignarse a un producto que este activo mediante el desplegable
+	Se pueden importar ficheros CSV de codigos desde el boton correspondiente
+
+-Entradas
+	listado de todas las entradas para eventos almacenadas en la aplicacion
+	Para poner a la venta 1 entrada, debe asignarse a un producto que este activo mediante el desplegable
+	Se pueden importar ficheros CSV de entradas desde el boton correspondiente
+	
+-Facturas
+	Listado de las facturas generadas por la aplicacion automaticamente
+	
+-Pedidos
+	Listado de pedidos generados por la aplicacion automaticamente
+
+-Productos
+	Listado de productos, esto es lo que aparece en la vista de usuario, realizando las compras siempre 
+	sobre el producto
+	-El stock se calcula automaticamente al cargar la vista de usuario y volver tras hacer una compra, 
+	contando la cantidad de codigos/entradas asignadas al producto (desde el menu)
+	-Un producto solo aparecera en la vista de usuario si tiene stock y la palabra clave activo en el 
+	campo Estado
+	-El tipo de producto debera completarse con entrada o codigo, dependiendo del tipo de producto que 
+	quiera vender, si no se rellena correctamente no calculara el stock (ira siempre a 0)
+
+
+Copias de seguridad
+Cada menu del administrador tiene la opcion independiente de descargar fichero CSV, el cual se puede 
+importar mas adelante, facilitando que cada usuario pueda realizar copias de seguridad en cualquier
+situacion
+
+Todos los menus tienen una amplia herramienta de busqueda
+
+
